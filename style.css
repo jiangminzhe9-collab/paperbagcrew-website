@@ -38,3 +38,6 @@ header .logo img{width:100%;height:auto;object-fit:contain}
 .ribbon{letter-spacing:.08em}
 nav a{white-space:nowrap}
 @media(max-width:360px){nav{column-gap:16px;justify-content:flex-start}}
+
+/* Burgundy section and collection labels, including paragraph overrides. */
+.eyebrow,.heading .eyebrow,.card .eyebrow,.story .eyebrow,.services .eyebrow,.contact .eyebrow{color:#800020}
