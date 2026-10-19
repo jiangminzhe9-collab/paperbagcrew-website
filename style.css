@@ -26,3 +26,9 @@ nav a{font-size:13px;min-height:38px;display:flex;align-items:center}
 .contact{padding:45px 5%}
 }
 @media(max-width:520px){.hero h1{font-size:clamp(34px,10.5vw,44px)}.character img{aspect-ratio:1;object-fit:contain}}
+
+/* Full-width mobile brand mark, preserving the original palette and layout. */
+@media(max-width:800px){
+header .logo{width:100%;max-width:none}
+header .logo img{width:100%;height:auto;object-fit:contain}
+}
