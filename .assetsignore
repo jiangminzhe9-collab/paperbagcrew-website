@@ -1,0 +1,7 @@
+/.git/**
+/.github/**
+/node_modules/**
+/wrangler.jsonc
+/README.md
+/package.json
+/package-lock.json
