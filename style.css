@@ -62,3 +62,69 @@ html:has(.collection-heading) .character{border-top:3px solid var(--series-ink)}
 html:has(.collection-heading) .character img{background:#ffffff66}
 html:has(.collection-heading) .character .copy{padding:22px}
 html:has(.collection-heading) .character .copy>a{color:var(--series-ink)}
+
+/* Paperbag Crew streetwear typography and art direction. */
+:root{--paper:#fff9e8;--ink:#171715;--green:#f5cc42;--line:#c9c2ae;--orange:#800020;--display:Impact,Haettenschweiler,'Arial Narrow','Arial Black',sans-serif}
+body{font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.7}
+header{border-bottom:2px solid var(--ink)}
+nav a{font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.045em;text-underline-offset:6px}
+nav a:last-child{background:var(--ink);color:var(--paper);padding:10px 14px}
+h1,h2,h3{font-family:var(--display);font-weight:900;text-transform:uppercase;letter-spacing:-.025em}
+.hero h1{font-size:clamp(48px,5.6vw,82px);line-height:1.01;letter-spacing:-.02em;margin:24px 0 30px}
+h2{font-size:clamp(36px,4.1vw,60px);line-height:1.04}
+h3{font-size:32px;line-height:1.12}
+.eyebrow,.heading .eyebrow,.card .eyebrow,.story .eyebrow,.services .eyebrow{font-family:'Courier New',monospace;font-size:13px;line-height:1.5;font-weight:800;letter-spacing:.09em;color:var(--ink)}
+.hero .eyebrow{display:inline-block;background:var(--ink);color:var(--green);padding:9px 12px}
+.intro,.heading>p,.story p,.services p,.card p,.character p{color:#45453f}
+.button{border:2px solid var(--ink);font-size:14px;text-transform:uppercase;letter-spacing:.06em;font-weight:900;min-height:50px;box-shadow:4px 4px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.button.outline{background:var(--paper);border-color:var(--ink)}
+.button:hover{background:var(--ink);color:var(--green);box-shadow:2px 2px 0 var(--ink);transform:translate(2px,2px)}
+.hero-art{border:2px solid var(--ink)}
+.label{border-top:2px solid var(--ink);font-family:'Courier New',monospace;font-size:13px;font-weight:800}
+.ribbon{background:var(--ink);color:var(--green);font-weight:900;letter-spacing:.08em;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.section{border-bottom:2px solid var(--ink)}
+.heading{align-items:flex-end}
+#collections .card{border:1px solid var(--ink);border-top:8px solid var(--series-ink);box-shadow:5px 5px 0 var(--ink)}
+#collections .card .copy{border-top:1px solid var(--ink)}
+#collections .card .eyebrow{display:inline-block;background:var(--series-ink);color:#fff;padding:6px 10px;margin-bottom:18px}
+#collections .card h3{font-size:clamp(28px,2.8vw,40px);margin-bottom:18px}
+#collections .card .more{display:inline-block;border-bottom:2px solid var(--series-ink);font-size:13px;font-weight:900;letter-spacing:.045em;text-transform:uppercase}
+#stories .card{background:#f5cc42;border:2px solid var(--ink)}
+#stories .card h3{font-size:clamp(28px,3vw,38px)}
+.story>img{border:2px solid var(--ink)}
+.services article{border-top:5px solid var(--ink)}
+.services h3{font-size:30px}
+.contact{background:var(--ink);color:var(--paper);border-top:8px solid var(--green)}
+.contact .eyebrow{color:var(--green);font-family:'Courier New',monospace}
+.contact h2{color:var(--green);font-size:clamp(42px,5.4vw,76px);line-height:1.03}
+.contact p,.contact small{color:#dedbd2}
+.contact a.email{color:var(--paper);font-weight:800;letter-spacing:-.025em;text-decoration-thickness:2px}
+footer{background:var(--green);color:var(--ink);border-top:2px solid var(--ink);font-size:12px;font-weight:700}
+.back{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;text-underline-offset:5px}
+.collection-heading h1{font-size:clamp(40px,6vw,80px);line-height:1.05;overflow-wrap:anywhere}
+html:has(.collection-heading) .collection-heading{border-left-width:8px}
+html:has(.collection-heading) .character{border:1px solid var(--ink);border-top:6px solid var(--series-ink)}
+html:has(.collection-heading) .character .copy{border-top:1px solid var(--ink)}
+.character h2{font-size:28px;line-height:1.15;overflow-wrap:anywhere}
+.code{display:inline-block;font-family:'Courier New',monospace;font-weight:900;letter-spacing:.08em}
+.search{border:2px solid var(--ink);border-radius:0;color:var(--ink)}
+a:focus-visible,input:focus-visible{outline:3px solid #800020;outline-offset:5px}
+@media(max-width:800px){
+nav{gap:8px 16px;justify-content:flex-start;align-items:center}
+nav a{font-size:12px;min-height:44px}
+nav a:last-child{padding:8px 12px}
+.hero h1{font-size:clamp(36px,10vw,64px);line-height:1.03;letter-spacing:-.025em}
+.hero .eyebrow{font-size:12px;letter-spacing:.04em}
+.heading h2{font-size:clamp(34px,7.5vw,48px)}
+.grid{gap:30px}
+#collections .card{box-shadow:4px 4px 0 var(--ink)}
+#collections .card h3{font-size:32px}
+.button{font-size:13px;padding:13px 17px}
+}
+@media(max-width:360px){
+.hero h1{font-size:34px}
+nav{gap:4px 12px}
+nav a{font-size:11px}
+#collections .card h3{font-size:28px}
+}
+@media(prefers-reduced-motion:reduce){.button{transition:none}.button:hover{transform:none}}
