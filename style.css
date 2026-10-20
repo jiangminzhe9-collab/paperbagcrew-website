@@ -41,3 +41,24 @@ nav a{white-space:nowrap}
 
 /* Burgundy section and collection labels, including paragraph overrides. */
 .eyebrow,.heading .eyebrow,.card .eyebrow,.story .eyebrow,.services .eyebrow,.contact .eyebrow{color:#800020}
+
+/* Collection colours: exact DONGZE character-catalog.css palette. */
+#collections .card[href="/collections/office-warriors/"],html:has(link[rel="canonical"][href="https://paperbagcrew.com/collections/office-warriors/"]){--series-tint:#EAF2FB;--series-ink:#315B82}
+#collections .card[href="/collections/office-workers/"],html:has(link[rel="canonical"][href="https://paperbagcrew.com/collections/office-workers/"]){--series-tint:#FFF1E3;--series-ink:#875B32}
+#collections .card[href="/collections/everyday-craftspeople/"],html:has(link[rel="canonical"][href="https://paperbagcrew.com/collections/everyday-craftspeople/"]){--series-tint:#EAF4EA;--series-ink:#426A4B}
+#collections .card[href="/collections/city-after-dark/"],html:has(link[rel="canonical"][href="https://paperbagcrew.com/collections/city-after-dark/"]){--series-tint:#EAF0F7;--series-ink:#28346A}
+#collections .card[href="/collections/street-players/"],html:has(link[rel="canonical"][href="https://paperbagcrew.com/collections/street-players/"]){--series-tint:#E7F5F1;--series-ink:#28695A}
+#collections .card[href="/collections/curious-residents/"],html:has(link[rel="canonical"][href="https://paperbagcrew.com/collections/curious-residents/"]){--series-tint:#FFF4D9;--series-ink:#806329}
+#collections .card[href="/collections/paperbag-cats/"],html:has(link[rel="canonical"][href="https://paperbagcrew.com/collections/paperbag-cats/"]){--series-tint:#F2ECFA;--series-ink:#6B508B}
+#collections .card[href="/collections/taike/"],html:has(link[rel="canonical"][href="https://paperbagcrew.com/collections/taike/"]){--series-tint:#FBECEE;--series-ink:#8C4E59}
+#collections .card{background:var(--series-tint);border-top:4px solid var(--series-ink)}
+#collections .card img{background:#ffffff50}
+#collections .card .eyebrow,#collections .card .more{color:var(--series-ink)}
+#collections .card:hover .more{color:var(--series-ink);border-bottom-width:2px}
+html:has(.collection-heading) .collection-heading{border-left:5px solid var(--series-ink);padding-left:22px}
+html:has(.collection-heading) .collection-heading .eyebrow,html:has(.collection-heading) .code{color:var(--series-ink)}
+html:has(.collection-heading) .group,html:has(.collection-heading) .character{background:var(--series-tint)}
+html:has(.collection-heading) .character{border-top:3px solid var(--series-ink)}
+html:has(.collection-heading) .character img{background:#ffffff66}
+html:has(.collection-heading) .character .copy{padding:22px}
+html:has(.collection-heading) .character .copy>a{color:var(--series-ink)}
