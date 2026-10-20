@@ -128,3 +128,32 @@ nav a{font-size:11px}
 #collections .card h3{font-size:28px}
 }
 @media(prefers-reduced-motion:reduce){.button{transition:none}.button:hover{transform:none}}
+
+/* Softer grey surfaces; logo white blends into the cream header. */
+:root{--ink:#30302e;--line:#d1cec4;--soft-grey:#e8e6df;--grey-text:#484846}
+header{border-bottom:1px solid #bcbab1;isolation:isolate}
+header .logo{background:transparent}
+header .logo img{mix-blend-mode:multiply}
+nav a:last-child{background:var(--soft-grey);color:var(--ink);border:1px solid #c2c0b8}
+nav a:last-child:hover{background:#dcdad3}
+.hero .eyebrow{background:var(--soft-grey);color:var(--grey-text);border-left:3px solid #aaa89f}
+.ribbon{background:#deddd6;color:var(--grey-text);border-top:1px solid #bbb9b1;border-bottom:1px solid #bbb9b1}
+.hero-art{border:1px solid #aaa89f}
+.label{border-top:1px solid #aaa89f}
+.section{border-bottom:1px solid #c6c3b9}
+.button{border-color:#76766f;box-shadow:3px 3px 0 #aaa89f}
+.button.outline{border-color:#76766f}
+.button:hover{background:#dcdad3;color:var(--ink);box-shadow:1px 1px 0 #aaa89f;transform:translate(2px,2px)}
+#collections .card{border-color:#c0beb6;border-top-color:var(--series-ink);box-shadow:3px 3px 0 #c8c5bb}
+#collections .card .copy{border-top-color:#c0beb6}
+#stories .card,.story>img{border:1px solid #bcbab1}
+.services article{border-top:3px solid #a6a49b}
+.contact{background:var(--soft-grey);color:var(--ink);border-top:4px solid #b9b7ae}
+.contact .eyebrow{color:#565652}
+.contact h2{color:#393937}
+.contact p,.contact small{color:#50504c}
+.contact a.email{color:#343432}
+footer{background:#eeece4;color:var(--ink);border-top:1px solid #c4c1b7}
+html:has(.collection-heading) .character{border-color:#bcbab1;border-top-color:var(--series-ink)}
+html:has(.collection-heading) .character .copy{border-top-color:#c0beb6}
+@media(max-width:800px){#collections .card{box-shadow:3px 3px 0 #c8c5bb}}
