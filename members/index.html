@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Your Crew | Paperbag Crew</title><link rel="stylesheet" href="/style.css?v=20261020-warm">
+<style>main{max-width:860px;margin:40px auto;padding:24px}h1{font-size:clamp(36px,7vw,64px)}.box{background:#fffaf2;border:1px solid #dbcdbb;border-radius:18px;padding:28px;margin:24px 0}label{display:block;margin:16px 0 8px}input[type=email],input[type=text]{width:100%;padding:14px;border:1px solid #887969;border-radius:8px;font:inherit}button{cursor:pointer;font:inherit;margin-top:16px;padding:12px 20px;background:#742e3b;color:white;border:0;border-radius:6px}button:disabled{opacity:.5;cursor:wait}[hidden]{display:none!important}#status{min-height:24px;white-space:pre-wrap}.muted{color:#655c52;font-size:14px}.downloads{display:grid;gap:16px}.item{border-top:1px solid #dbcdbb;padding:18px 0}.item h3{margin:0}a{color:inherit}</style></head>
+<body><main><a href="/">← Paperbag Crew</a><p>MEMBERS / YOUR CREW</p><h1>A little art.<br>Everyday company.</h1><p>Sign in to your member space and explore free wallpaper releases.</p><p id="status" role="status" aria-live="polite">Loading your member space…</p>
+<section id="login" class="box" hidden><h2>Join or sign in</h2><p>We’ll email you a secure sign-in link. No password to remember.</p><form id="login-form"><label for="email">Email address</label><input id="email" type="email" autocomplete="email" required maxlength="254"><button>Send sign-in link</button></form><p class="muted">We use your email to manage your account and send sign-in messages. Your member profile is private. We don’t ask for a delivery address to download wallpapers.</p><p class="muted">This browser keeps you signed in while your session remains valid. Sign out when using a shared device.</p></section>
+<section id="account" hidden><div class="box"><h2>Your member space</h2><p id="account-email"></p><form id="profile-form"><label for="display-name">Nickname (optional)</label><input id="display-name" type="text" maxlength="80" autocomplete="nickname"><button>Save profile</button></form><button id="signout" type="button">Sign out</button><p class="muted">For account deletion or help, contact <a href="mailto:dongze.ltd@gmail.com">dongze.ltd@gmail.com</a>.</p></div><div class="box"><h2>Your free wallpapers</h2><p>For personal use only. Please don’t resell or redistribute the original files.</p><div id="downloads" class="downloads"></div></div></section>
+<noscript>Please enable JavaScript to use your member account.</noscript></main>
+<script type="module">
+const $=id=>document.getElementById(id);
+const status=message=>{$('status').textContent=message;};
+let client, currentUser, revision=0;
+async function run(button, task){button.disabled=true;try{await task();}catch(e){status(e.message||'Something went wrong. Please try again.');}finally{button.disabled=false;}}
+async function refresh(){
+ const ticket=++revision;
+ const {data:{user},error}=await client.auth.getUser();
+ if(ticket!==revision)return;
+ currentUser=user;
+ $('login').hidden=!!user; $('account').hidden=!user;
+ $('downloads').replaceChildren(); $('display-name').value='';
+ if(!user){status(error&&error.name!=='AuthSessionMissingError'?'Please sign in again to continue.':'');return;}
+ $('account-email').textContent=user.email||'';
+ const profile=await client.from('member_profiles').select('display_name').eq('user_id',user.id).maybeSingle();
+ if(profile.error)throw profile.error;
+ if(ticket!==revision)return;
+ $('display-name').value=profile.data?.display_name||'';
+ const result=await client.from('wallpapers').select('id,title,object_path').order('created_at',{ascending:false});
+ if(result.error)throw result.error;
+ if(ticket!==revision)return;
+ if(!result.data.length){const p=document.createElement('p');p.textContent='Our first member wallpapers are being prepared. Please check back soon.';$('downloads').append(p);}
+ for(const item of result.data){
+ const card=document.createElement('article');card.className='item';
+ const title=document.createElement('h3');title.textContent=item.title;
+ const button=document.createElement('button');button.textContent='Download wallpaper';
+ button.onclick=()=>run(button,async()=>{
+ const {data,error}=await client.storage.from('member-wallpapers').createSignedUrl(item.object_path,60,{download:true});
+ if(error)throw error;
+ const a=document.createElement('a');a.href=data.signedUrl;a.rel='noopener';a.textContent='Open your download';card.append(a);a.click();
+ status('Your download link is ready for 60 seconds.');setTimeout(()=>a.remove(),60000);
+ });
+ card.append(title,button);$('downloads').append(card);
+ }
+ status('Welcome to your crew.');
+}
+try{
+ const {createClient}=await import('https://esm.sh/@supabase/supabase-js@2.118.0');
+ client=createClient('https://yliacgixfhjhgjemvbpg.supabase.co','sb_publishable_MTi1uzs0XQMy9R6CfAYVHQ_5TDgjltp',{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true,flowType:'pkce'}});
+ $('login-form').onsubmit=e=>{e.preventDefault();run(e.submitter,async()=>{
+ const {error}=await client.auth.signInWithOtp({email:$('email').value.trim(),options:{emailRedirectTo:'https://paperbagcrew.com/members/'}});
+ if(error)throw error;status('Check your email and open the sign-in link in this browser. You can close this page after signing in.');
+ });};
+ $('profile-form').onsubmit=e=>{e.preventDefault();run(e.submitter,async()=>{
+ if(!currentUser)throw new Error('Please sign in again.');
+ const existing=await client.from('member_profiles').select('user_id').eq('user_id',currentUser.id).maybeSingle();
+ if(existing.error)throw existing.error;
+ const display_name=$('display-name').value.trim();
+ const {error}=existing.data ? await client.from('member_profiles').update({display_name}).eq('user_id',currentUser.id) : await client.from('member_profiles').insert({user_id:currentUser.id,display_name});
+ if(error)throw error;status('Your profile has been saved.');
+ });};
+ $('signout').onclick=()=>run($('signout'),async()=>{const {error}=await client.auth.signOut({scope:'local'});if(error)throw error;await refresh();status('You have signed out of this browser.');});
+ client.auth.onAuthStateChange((event)=>{if(['SIGNED_IN','SIGNED_OUT','USER_UPDATED'].includes(event))setTimeout(()=>refresh().catch(e=>status(e.message)),0);});
+ await refresh();
+}catch(e){status('Unable to load your member space. '+e.message);}
+</script></body></html>
