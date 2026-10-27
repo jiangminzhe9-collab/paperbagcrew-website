@@ -1,0 +1,371 @@
+[
+  {
+    "id": 1,
+    "title": "Nova / Purple Nights",
+    "group": "Street Players",
+    "status": "free",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/01.webp"
+  },
+  {
+    "id": 2,
+    "title": "Mira / Violet Skyline",
+    "group": "Street Players",
+    "status": "preview",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/02.webp"
+  },
+  {
+    "id": 3,
+    "title": "Rio / Blue Hour",
+    "group": "Street Players",
+    "status": "free",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/03.webp"
+  },
+  {
+    "id": 4,
+    "title": "Nova / Night Off",
+    "group": "Street Players",
+    "status": "preview",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/04.webp"
+  },
+  {
+    "id": 5,
+    "title": "Nova / Sunset",
+    "group": "Street Players",
+    "status": "free",
+    "width": 941,
+    "height": 1671,
+    "src": "/wallpapers/assets/05.webp"
+  },
+  {
+    "id": 6,
+    "title": "Rio / Street Signal",
+    "group": "Street Players",
+    "status": "preview",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/06.webp"
+  },
+  {
+    "id": 7,
+    "title": "Mira / Paint the City",
+    "group": "Street Players",
+    "status": "preview",
+    "width": 940,
+    "height": 1672,
+    "src": "/wallpapers/assets/07.webp"
+  },
+  {
+    "id": 8,
+    "title": "Rio / Street 003",
+    "group": "Street Players",
+    "status": "preview",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/08.webp"
+  },
+  {
+    "id": 9,
+    "title": "Mira / Street 002",
+    "group": "Street Players",
+    "status": "preview",
+    "width": 940,
+    "height": 1672,
+    "src": "/wallpapers/assets/09.webp"
+  },
+  {
+    "id": 11,
+    "title": "City Lights",
+    "group": "City Moments",
+    "status": "preview",
+    "width": 1363,
+    "height": 1154,
+    "src": "/wallpapers/assets/11.webp"
+  },
+  {
+    "id": 12,
+    "title": "Golden Hour",
+    "group": "City Moments",
+    "status": "collection",
+    "width": 941,
+    "height": 1671,
+    "src": "/wallpapers/assets/12.webp"
+  },
+  {
+    "id": 13,
+    "title": "Rooftop Reverie",
+    "group": "City Moments",
+    "status": "collection",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/13.webp"
+  },
+  {
+    "id": 14,
+    "title": "Sunset Watch",
+    "group": "City Moments",
+    "status": "preview",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/14.webp"
+  },
+  {
+    "id": 15,
+    "title": "Lantern Lane",
+    "group": "City Moments",
+    "status": "collection",
+    "width": 943,
+    "height": 1668,
+    "src": "/wallpapers/assets/15.webp"
+  },
+  {
+    "id": 16,
+    "title": "Golden Companion",
+    "group": "City Moments",
+    "status": "collection",
+    "width": 943,
+    "height": 1668,
+    "src": "/wallpapers/assets/16.webp"
+  },
+  {
+    "id": 17,
+    "title": "Evening Frequency",
+    "group": "City Moments",
+    "status": "preview",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/17.webp"
+  },
+  {
+    "id": 18,
+    "title": "Sunset Pause",
+    "group": "City Moments",
+    "status": "collection",
+    "width": 940,
+    "height": 1672,
+    "src": "/wallpapers/assets/18.webp"
+  },
+  {
+    "id": 19,
+    "title": "Coastal Pause",
+    "group": "City Moments",
+    "status": "preview",
+    "width": 1363,
+    "height": 1154,
+    "src": "/wallpapers/assets/19.webp"
+  },
+  {
+    "id": 21,
+    "title": "Quiet Skyline",
+    "group": "City Moments",
+    "status": "preview",
+    "width": 940,
+    "height": 1672,
+    "src": "/wallpapers/assets/21.webp"
+  },
+  {
+    "id": 22,
+    "title": "Above the City",
+    "group": "City Moments",
+    "status": "preview",
+    "width": 1363,
+    "height": 1154,
+    "src": "/wallpapers/assets/22.webp"
+  },
+  {
+    "id": 23,
+    "title": "Daylight Explorer",
+    "group": "City Moments",
+    "status": "preview",
+    "width": 1363,
+    "height": 1154,
+    "src": "/wallpapers/assets/23.webp"
+  },
+  {
+    "id": 24,
+    "title": "Courtside Sunset",
+    "group": "City Moments",
+    "status": "preview",
+    "width": 1363,
+    "height": 1154,
+    "src": "/wallpapers/assets/24.webp"
+  },
+  {
+    "id": 25,
+    "title": "Daylight Detour",
+    "group": "City Moments",
+    "status": "collection",
+    "width": 1024,
+    "height": 1536,
+    "src": "/wallpapers/assets/25.webp"
+  },
+  {
+    "id": 26,
+    "title": "One More Game",
+    "group": "City Moments",
+    "status": "preview",
+    "width": 1363,
+    "height": 1154,
+    "src": "/wallpapers/assets/26.webp"
+  },
+  {
+    "id": 27,
+    "title": "Courtside Blue",
+    "group": "City Moments",
+    "status": "collection",
+    "width": 1024,
+    "height": 1536,
+    "src": "/wallpapers/assets/27.webp"
+  },
+  {
+    "id": 28,
+    "title": "Last Light Court",
+    "group": "City Moments",
+    "status": "collection",
+    "width": 1024,
+    "height": 1536,
+    "src": "/wallpapers/assets/28.webp"
+  },
+  {
+    "id": 29,
+    "title": "Platform Eight",
+    "group": "City Moments",
+    "status": "collection",
+    "width": 1024,
+    "height": 1536,
+    "src": "/wallpapers/assets/29.webp"
+  },
+  {
+    "id": 30,
+    "title": "Neon Pause",
+    "group": "City Moments",
+    "status": "free",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/30.webp"
+  },
+  {
+    "id": 31,
+    "title": "Street Ready",
+    "group": "City Moments",
+    "status": "collection",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/31.webp"
+  },
+  {
+    "id": 32,
+    "title": "Coffee Break",
+    "group": "City Moments",
+    "status": "collection",
+    "width": 941,
+    "height": 1671,
+    "src": "/wallpapers/assets/32.webp"
+  },
+  {
+    "id": 33,
+    "title": "Sunset Seat",
+    "group": "City Moments",
+    "status": "preview",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/33.webp"
+  },
+  {
+    "id": 34,
+    "title": "Soundtrack to the City",
+    "group": "City Moments",
+    "status": "collection",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/34.webp"
+  },
+  {
+    "id": 35,
+    "title": "Skate Spot",
+    "group": "City Moments",
+    "status": "preview",
+    "width": 1024,
+    "height": 1536,
+    "src": "/wallpapers/assets/35.webp"
+  },
+  {
+    "id": 36,
+    "title": "Headphones On",
+    "group": "City Moments",
+    "status": "preview",
+    "width": 1024,
+    "height": 1536,
+    "src": "/wallpapers/assets/36.webp"
+  },
+  {
+    "id": 37,
+    "title": "Take Five",
+    "group": "City Moments",
+    "status": "preview",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/37.webp"
+  },
+  {
+    "id": 38,
+    "title": "Moonlit Rooftop",
+    "group": "City Moments",
+    "status": "free",
+    "width": 841,
+    "height": 1870,
+    "src": "/wallpapers/assets/38.webp"
+  },
+  {
+    "id": 40,
+    "title": "Redline Session",
+    "group": "City Moments",
+    "status": "preview",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/40.webp"
+  },
+  {
+    "id": 41,
+    "title": "Same Sky",
+    "group": "Street Editions",
+    "status": "preview",
+    "width": 508,
+    "height": 1023,
+    "src": "/wallpapers/assets/41.webp"
+  },
+  {
+    "id": 42,
+    "title": "Street Edition 001",
+    "group": "Street Editions",
+    "status": "preview",
+    "width": 512,
+    "height": 1023,
+    "src": "/wallpapers/assets/42.webp"
+  },
+  {
+    "id": 43,
+    "title": "Create. Explore. Belong.",
+    "group": "Street Editions",
+    "status": "preview",
+    "width": 505,
+    "height": 1023,
+    "src": "/wallpapers/assets/43.webp"
+  },
+  {
+    "id": 44,
+    "title": "Midnight Pause",
+    "group": "City Moments",
+    "status": "free",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/44.webp"
+  }
+]
