@@ -61,7 +61,7 @@
   };
   const mode = value => {
     signup = value; $('name-field').hidden = !value; $('name').required = value;
-    $('password-hint').hidden = !value; $('password').minLength = value ? 12 : 1;
+    $('password-hint').hidden = !value; $('password').minLength = value ? 8 : 1;
     $('password').autocomplete = value ? 'new-password' : 'current-password';
     $('submit').textContent = value ? 'Create account' : 'Sign in';
     $('signup-tab').setAttribute('aria-pressed', String(value));
