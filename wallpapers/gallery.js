@@ -27,5 +27,7 @@
  document.getElementById('previous').addEventListener('click',()=>move(-1));document.getElementById('next').addEventListener('click',()=>move(1));document.getElementById('close').addEventListener('click',()=>viewer.close());
  viewer.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();move(1);}if(e.key==='ArrowLeft'){e.preventDefault();move(-1);}});
  viewer.addEventListener('close',()=>{document.body.classList.remove('modal-open');trigger?.focus();});
+ const initialCollection=new URLSearchParams(location.search).get('collection');
+ if(Array.from(theme.options).some(o=>o.value===initialCollection))theme.value=initialCollection;
  filter();
 })();

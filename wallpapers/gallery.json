@@ -1,5 +1,113 @@
 [
   {
+    "id": 45,
+    "title": "Blue Air",
+    "group": "Winter Collection",
+    "status": "preview",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/winter-m01.webp"
+  },
+  {
+    "id": 46,
+    "title": "Forest Walk",
+    "group": "Winter Collection",
+    "status": "preview",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/winter-m02.webp"
+  },
+  {
+    "id": 47,
+    "title": "Lodge Break",
+    "group": "Winter Collection",
+    "status": "preview",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/winter-m03.webp"
+  },
+  {
+    "id": 48,
+    "title": "Golden Carve",
+    "group": "Winter Collection",
+    "status": "preview",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/winter-m04.webp"
+  },
+  {
+    "id": 49,
+    "title": "Rose Ride",
+    "group": "Winter Collection",
+    "status": "preview",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/winter-f01.webp"
+  },
+  {
+    "id": 50,
+    "title": "Lavender Wave",
+    "group": "Winter Collection",
+    "status": "preview",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/winter-f02.webp"
+  },
+  {
+    "id": 51,
+    "title": "Sky Lift",
+    "group": "Winter Collection",
+    "status": "preview",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/winter-f03.webp"
+  },
+  {
+    "id": 52,
+    "title": "Warm Cocoa",
+    "group": "Winter Collection",
+    "status": "preview",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/winter-f04.webp"
+  },
+  {
+    "id": 53,
+    "title": "Binding Check",
+    "group": "Winter Collection",
+    "status": "preview",
+    "width": 941,
+    "height": 1671,
+    "src": "/wallpapers/assets/winter-n01.webp"
+  },
+  {
+    "id": 54,
+    "title": "Alpine Trek",
+    "group": "Winter Collection",
+    "status": "preview",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/winter-n02.webp"
+  },
+  {
+    "id": 55,
+    "title": "Snow Friend",
+    "group": "Winter Collection",
+    "status": "preview",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/winter-n03.webp"
+  },
+  {
+    "id": 56,
+    "title": "Night Peace",
+    "group": "Winter Collection",
+    "status": "preview",
+    "width": 941,
+    "height": 1672,
+    "src": "/wallpapers/assets/winter-n04.webp"
+  },
+  {
     "id": 1,
     "title": "Nova / Purple Nights",
     "group": "Street Players",
