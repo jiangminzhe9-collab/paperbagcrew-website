@@ -17,7 +17,7 @@
   document.getElementById('position').textContent=(active+1)+' / '+list.length;
   const link=document.getElementById('viewer-link'),target=card.querySelector('.caption a');link.hidden=!target;
   if(target){link.setAttribute('href',target.getAttribute('href'));link.textContent=target.textContent;}else{link.removeAttribute('href');}
-  document.getElementById('viewer-status').textContent=card.dataset.status==='free'?'Free original download after member sign-in.':card.dataset.status==='collection'?'Part of City Sessions Vol. 01. Checkout is not open.':'Preview only. This artwork is not available for download yet.';
+  document.getElementById('viewer-status').textContent='Choose this as one of your 6 free wallpapers after sign-in. Choices are permanent; repeat downloads use no extra choice.';
  }
  cards.forEach(card=>card.querySelector('.art').addEventListener('click',e=>{
   if(typeof viewer.showModal!=='function'){window.open(card.querySelector('img').src,'_blank','noopener');return;}
