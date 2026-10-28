@@ -4,13 +4,15 @@ Run the DOM integration test with Node.js and jsdom 26:
   npm install --no-save jsdom@26
   node tests/member-choices.cjs
 
-The PostgreSQL test uses a rollback-only transaction and six existing catalog entries.
-Run on the staged database before catalog activation; it leaves no test user or selections.
+The PostgreSQL test uses a rollback-only transaction and six published catalog entries.
+Run tests/member-choices.sql after catalog activation. It leaves no test user or selections.
+It verifies quota constraints, immutable choices, cross-account isolation, and selected-only private storage access.
 
-Release status
-- Base schema applied and PostgreSQL isolation/quota test passed.
-- Frontend integration test passed.
-- 47 new originals still await approved upload to the existing private member-wallpapers bucket.
-- Activation migration has not been applied; production still offers its original six files.
-- Upload, verify all SHA-256 readbacks, apply activation migration, deploy frontend, and verify authenticated selected/unselected storage access before release completion.
-- No credentials or original artwork files belong in this repository.
+Release order
+1. Apply the base schema.
+2. Upload approved originals to the private member-wallpapers bucket and verify SHA-256 readbacks.
+3. Apply the guarded activation migration; it refuses to activate missing originals.
+4. Run the PostgreSQL test, deploy the frontend, and verify the live gallery/account pages.
+5. Disable the temporary importer and remove its temporary credential.
+
+Originals and privileged credentials must never be committed to this repository.
