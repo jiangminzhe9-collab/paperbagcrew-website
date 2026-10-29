@@ -1,5 +1,23 @@
 [
   {
+    "id": 57,
+    "title": "Purple Nights — Realistic",
+    "group": "Street Players",
+    "status": "free",
+    "width": 480,
+    "height": 1039,
+    "src": "/wallpapers/assets/nova-purple-nights-realistic.webp"
+  },
+  {
+    "id": 58,
+    "title": "Purple Nights — Q Collectible",
+    "group": "Street Players",
+    "status": "free",
+    "width": 480,
+    "height": 1039,
+    "src": "/wallpapers/assets/nova-purple-nights-q.webp"
+  },
+  {
     "id": 45,
     "title": "Blue Air",
     "group": "Winter Collection",

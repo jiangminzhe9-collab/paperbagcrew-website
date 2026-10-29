@@ -16,15 +16,15 @@ const tick=()=>new Promise(r=>setTimeout(r,20));
 async function page(){const dom=new JSDOM(fs.readFileSync(root+'/account/index.html','utf8'),{url:'https://paperbagcrew.com/account/',runScripts:'outside-only'});dom.window.supabase={createClient:client};dom.window.confirm=()=>confirm;dom.window.open=()=>({document:{body:{}},location:{replace(){}},close(){}});dom.window.eval(fs.readFileSync(root+'/assets/member.js','utf8'));await tick();return dom;}
 (async()=>{
  let dom=await page(),d=dom.window.document;
- assert.equal(d.querySelectorAll('.wallpaper-card').length,53);assert.equal(signed,0,'previews must not sign originals');
+ assert.equal(d.querySelectorAll('.wallpaper-card').length,catalog.length);assert.equal(signed,0,'previews must not sign originals');
  confirm=false;d.querySelector('.wallpaper-actions button').click();await tick();assert.equal(inserts,0,'cancel uses no slot');
  confirm=true;collision=true;d.querySelector('.wallpaper-actions button').click();await tick();assert.equal(selections.length,2);assert.equal(inserts,2);assert.match(d.getElementById('wallpaper-quota').textContent,/4 choices remaining/);
  const n=inserts;d.querySelector('.wallpaper-actions button').click();await tick();assert.equal(inserts,n,'repeat uses no slot');
  while(selections.length<6){const b=[...d.querySelectorAll('.wallpaper-actions button')].find(x=>x.textContent==='Choose this wallpaper');b.click();await tick();}
- assert.equal(d.querySelectorAll('.wallpaper-actions button:disabled').length,48);assert.match(d.getElementById('wallpaper-quota').textContent,/0 choices remaining/);
+ assert.equal(d.querySelectorAll('.wallpaper-actions button:disabled').length,catalog.length-5);assert.match(d.getElementById('wallpaper-quota').textContent,/0 choices remaining/);
  dom.window.close();dom=await page();d=dom.window.document;assert.match(d.getElementById('wallpaper-quota').textContent,/6 of 6/,'choices survive a fresh page/device');
  d.getElementById('wallpaper-view').value='chosen';d.getElementById('wallpaper-view').dispatchEvent(new dom.window.Event('change'));assert.equal(d.querySelectorAll('.wallpaper-card').length,5);
  onAuth('SIGNED_OUT',null);assert(d.getElementById('wallpapers').hidden);assert.equal(d.querySelectorAll('.wallpaper-card').length,0);dom.window.close();
- const gallery=new JSDOM(fs.readFileSync(root+'/wallpapers/index.html','utf8'),{url:'https://paperbagcrew.com/wallpapers/?collection=Winter%20Collection',runScripts:'outside-only'});gallery.window.eval(fs.readFileSync(root+'/wallpapers/gallery.js','utf8'));assert.equal(gallery.window.document.querySelectorAll('.card:not([hidden])').length,12);assert.equal(gallery.window.document.querySelectorAll('.caption a[href^="/account/?artwork="]').length,53);gallery.window.close();
- console.log('PASS: 53 previews, cancel, concurrent slot retry, repeat download, quota exhaustion, persistence, filters, signout, 53 direct links.');
+ const gallery=new JSDOM(fs.readFileSync(root+'/wallpapers/index.html','utf8'),{url:'https://paperbagcrew.com/wallpapers/?collection=Winter%20Collection',runScripts:'outside-only'});gallery.window.eval(fs.readFileSync(root+'/wallpapers/gallery.js','utf8'));assert.equal(gallery.window.document.querySelectorAll('.card:not([hidden])').length,12);assert.equal(gallery.window.document.querySelectorAll('.caption a[href^="/account/?artwork="]').length,catalog.length);gallery.window.close();
+ console.log('PASS: '+catalog.length+' previews, cancel, concurrent slot retry, repeat download, quota exhaustion, persistence, filters, signout, '+catalog.length+' direct links.');
 })().catch(e=>{console.error(e);process.exitCode=1});
