@@ -1,5 +1,149 @@
 [
   {
+    "id": 238,
+    "title": "078 / Dash — Small Frame. Big Tempo.",
+    "group": "Street Stories",
+    "status": "free",
+    "width": 480,
+    "height": 1039,
+    "src": "/wallpapers/assets/street-story-078-dash.webp"
+  },
+  {
+    "id": 239,
+    "title": "079 / Ace — Let The Shot Speak.",
+    "group": "Street Stories",
+    "status": "free",
+    "width": 480,
+    "height": 1039,
+    "src": "/wallpapers/assets/street-story-079-ace.webp"
+  },
+  {
+    "id": 240,
+    "title": "080 / Chill — Read The Court. Set The Pace.",
+    "group": "Street Stories",
+    "status": "free",
+    "width": 480,
+    "height": 1039,
+    "src": "/wallpapers/assets/street-story-080-chill.webp"
+  },
+  {
+    "id": 241,
+    "title": "081 / Brick — Hold Your Ground.",
+    "group": "Street Stories",
+    "status": "free",
+    "width": 480,
+    "height": 1039,
+    "src": "/wallpapers/assets/street-story-081-brick.webp"
+  },
+  {
+    "id": 242,
+    "title": "082 / Tower — Rise Above. Stay Grounded.",
+    "group": "Street Stories",
+    "status": "free",
+    "width": 480,
+    "height": 1039,
+    "src": "/wallpapers/assets/street-story-082-tower.webp"
+  },
+  {
+    "id": 221,
+    "title": "061 / Butter · Chef Cat — Care Is The Secret Ingredient.",
+    "group": "Street Stories",
+    "status": "free",
+    "width": 480,
+    "height": 1039,
+    "src": "/wallpapers/assets/street-story-061-butter-chef-cat.webp"
+  },
+  {
+    "id": 222,
+    "title": "062 / Dottie · Painter Cat — Color Outside The Ordinary.",
+    "group": "Street Stories",
+    "status": "free",
+    "width": 480,
+    "height": 1039,
+    "src": "/wallpapers/assets/street-story-062-dottie-painter-cat.webp"
+  },
+  {
+    "id": 223,
+    "title": "063 / Peppo · Pizza Cat — Good Things Arrive Warm.",
+    "group": "Street Stories",
+    "status": "free",
+    "width": 480,
+    "height": 1039,
+    "src": "/wallpapers/assets/street-story-063-peppo-pizza-cat.webp"
+  },
+  {
+    "id": 224,
+    "title": "064 / Aria · Ragdoll Cat — Elegance Starts With Care.",
+    "group": "Street Stories",
+    "status": "free",
+    "width": 480,
+    "height": 1039,
+    "src": "/wallpapers/assets/street-story-064-aria-ragdoll-cat.webp"
+  },
+  {
+    "id": 207,
+    "title": "047 / Budget Freezer — Hold The Line.",
+    "group": "Street Stories",
+    "status": "free",
+    "width": 480,
+    "height": 1039,
+    "src": "/wallpapers/assets/street-story-047-budget-freezer.webp"
+  },
+  {
+    "id": 208,
+    "title": "048 / Delivery Striker — Every Block Counts.",
+    "group": "Street Stories",
+    "status": "free",
+    "width": 480,
+    "height": 1039,
+    "src": "/wallpapers/assets/street-story-048-delivery-striker.webp"
+  },
+  {
+    "id": 209,
+    "title": "049 / Night Watch Guardian — Keep The Light On.",
+    "group": "Street Stories",
+    "status": "free",
+    "width": 480,
+    "height": 1039,
+    "src": "/wallpapers/assets/street-story-049-night-watch-guardian.webp"
+  },
+  {
+    "id": 196,
+    "title": "036 / Homeward Bound — Home Is Ahead.",
+    "group": "Street Stories",
+    "status": "free",
+    "width": 480,
+    "height": 1039,
+    "src": "/wallpapers/assets/street-story-036-homeward-bound.webp"
+  },
+  {
+    "id": 197,
+    "title": "037 / Late Commuter — A Warm Way Home.",
+    "group": "Street Stories",
+    "status": "free",
+    "width": 480,
+    "height": 1039,
+    "src": "/wallpapers/assets/street-story-037-late-commuter.webp"
+  },
+  {
+    "id": 198,
+    "title": "038 / Assistant Engineer — Test. Learn. Repeat.",
+    "group": "Street Stories",
+    "status": "free",
+    "width": 480,
+    "height": 1039,
+    "src": "/wallpapers/assets/street-story-038-assistant-engineer.webp"
+  },
+  {
+    "id": 199,
+    "title": "039 / Production Operator — Care In Every Detail.",
+    "group": "Street Stories",
+    "status": "free",
+    "width": 480,
+    "height": 1039,
+    "src": "/wallpapers/assets/street-story-039-production-operator.webp"
+  },
+  {
     "id": 235,
     "title": "075 / Lao-Bao — Experience Sets The Play.",
     "group": "Street Stories",
