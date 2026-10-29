@@ -1,0 +1,1094 @@
+[
+  {
+    "id": 0,
+    "name": "The Fool",
+    "upright": {
+      "theme": "A fresh beginning",
+      "reflection": "A new direction does not require a complete map. Today, curiosity may be more useful than a perfect plan. Make room for possibility while keeping practical limits in sight; a small experiment can teach you more than another round of imagining.",
+      "action": "Take one low-risk step towards something new."
+    },
+    "reversed": {
+      "theme": "Pause before leaping",
+      "reflection": "The wish for a fresh start can sometimes outrun preparation. Notice whether you are avoiding a necessary detail or postponing a harmless first step. You do not have to choose between recklessness and standing still; a measured experiment offers another way.",
+      "action": "Name one risk and one safeguard before acting."
+    }
+  },
+  {
+    "id": 1,
+    "name": "The Magician",
+    "upright": {
+      "theme": "Use what you have",
+      "reflection": "You may already have more useful resources than you are giving yourself credit for. Bring attention to the tools, experience and relationships within reach. Progress today can begin by connecting those pieces rather than waiting for a new source of confidence.",
+      "action": "Choose one available resource and put it to work."
+    },
+    "reversed": {
+      "theme": "Bring intention into focus",
+      "reflection": "Scattered effort can make genuine ability feel ineffective. Consider whether too many promises or competing ideas are diluting your attention. A persuasive plan is not the same as a workable one; return to what you can actually deliver with care today.",
+      "action": "Reduce your plan to one clear, achievable task."
+    }
+  },
+  {
+    "id": 2,
+    "name": "The High Priestess",
+    "upright": {
+      "theme": "Listen beneath the noise",
+      "reflection": "Not every useful insight arrives as an immediate answer. Give yourself room to notice a quiet reaction, a recurring thought or a detail you have overlooked. Intuition can offer a starting point, but let observation and evidence help you understand it.",
+      "action": "Spend five quiet minutes writing what you notice."
+    },
+    "reversed": {
+      "theme": "Check the signal",
+      "reflection": "When uncertainty grows, it can be tempting to treat every feeling as a message. Separate what you sense from what you know. You can respect your inner response without rushing to explain another person or draw a conclusion from incomplete information.",
+      "action": "Write one feeling, one fact and one unanswered question."
+    }
+  },
+  {
+    "id": 3,
+    "name": "The Empress",
+    "upright": {
+      "theme": "Care that helps things grow",
+      "reflection": "Something in your day may benefit from nourishment rather than more pressure. Consider what supports your energy, creativity or connection with others. Growth can be practical and ordinary: a meal, a comfortable workspace or enough time to finish without rushing.",
+      "action": "Give one neglected need some concrete care."
+    },
+    "reversed": {
+      "theme": "Restore your own resources",
+      "reflection": "Caring for everyone or everything can leave little room for your own needs. Notice where generosity has become an obligation you cannot sustain. You are allowed to simplify, ask for help and choose a form of care that includes you too.",
+      "action": "Replace one draining obligation with a manageable boundary."
+    }
+  },
+  {
+    "id": 4,
+    "name": "The Emperor",
+    "upright": {
+      "theme": "Build a steady foundation",
+      "reflection": "Clear structure can make a demanding day feel more manageable. Focus on the parts you can organise: priorities, boundaries and responsibilities. You do not need to control every outcome; a reliable framework gives you more room to respond when circumstances change.",
+      "action": "Set one clear priority and one limit for today."
+    },
+    "reversed": {
+      "theme": "Flexibility is also strength",
+      "reflection": "A rule that once helped may now be creating unnecessary friction. Look at where control, perfection or resistance to guidance is making work harder. Keep the purpose of your structure in view, and allow the method to change when needed.",
+      "action": "Question one rigid rule without abandoning its useful purpose."
+    }
+  },
+  {
+    "id": 5,
+    "name": "The Hierophant",
+    "upright": {
+      "theme": "Learn from a trusted source",
+      "reflection": "You do not have to work everything out alone. A useful tradition, teacher or shared practice may offer perspective today. Take what helps you act with understanding, while leaving room to ask why and adapt the lesson to your own circumstances.",
+      "action": "Ask a thoughtful question of someone with relevant experience."
+    },
+    "reversed": {
+      "theme": "Choose your own principles",
+      "reflection": "Familiar advice may not fit the situation in front of you. Consider which expectations reflect your values and which you are following automatically. Independent thinking does not mean rejecting every guide; it means understanding what you choose to keep and why.",
+      "action": "Write down the principle behind one decision you face."
+    }
+  },
+  {
+    "id": 6,
+    "name": "The Lovers",
+    "upright": {
+      "theme": "Choose with integrity",
+      "reflection": "A meaningful choice may ask you to bring your actions closer to your values. In a relationship or shared project, clarity and consent matter more than guessing. Make space for an honest conversation about what each person can genuinely offer.",
+      "action": "Express one preference clearly and invite the other perspective."
+    },
+    "reversed": {
+      "theme": "Notice the mismatch",
+      "reflection": "Mixed signals can come from competing needs within you as well as differences between people. Avoid filling in someone else’s intentions. Instead, look at whether your choices, commitments and boundaries fit together, and identify where a respectful conversation could help.",
+      "action": "Name one mismatch you can discuss rather than assume."
+    }
+  },
+  {
+    "id": 7,
+    "name": "The Chariot",
+    "upright": {
+      "theme": "Give your effort direction",
+      "reflection": "Determination becomes more useful when it has a clear destination. If different demands are pulling at you, choose the priority that deserves your energy today. Steady steering matters more than speed; progress can include slowing down enough to stay on course.",
+      "action": "Define what a successful next hour would look like."
+    },
+    "reversed": {
+      "theme": "Regain the steering wheel",
+      "reflection": "Pushing harder is not always the way forward. You may need to reconsider the direction, pace or number of things you are trying to manage. Step back from proving yourself and focus on a small area where your choices still matter.",
+      "action": "Pause one competing task and reset your immediate goal."
+    }
+  },
+  {
+    "id": 8,
+    "name": "Strength",
+    "upright": {
+      "theme": "Meet difficulty with patience",
+      "reflection": "A calm response can carry more strength than a forceful one. Notice where frustration or fear is asking for your attention without letting it make every decision. You can acknowledge a difficult feeling and still choose a kind, deliberate next step.",
+      "action": "Respond to one frustration more slowly than usual."
+    },
+    "reversed": {
+      "theme": "Make room for vulnerability",
+      "reflection": "Feeling uncertain does not mean you have lost your ability to cope. Self-criticism may be using energy you need elsewhere. Consider what support, rest or reassurance would make the situation more manageable, and allow yourself to receive it without earning it first.",
+      "action": "Ask for one specific form of practical support."
+    }
+  },
+  {
+    "id": 9,
+    "name": "The Hermit",
+    "upright": {
+      "theme": "Create space for perspective",
+      "reflection": "A little distance from other people’s opinions may help you hear your own thinking. Choose reflection with a purpose rather than withdrawing from everything. The aim is not to solve your whole life today, but to recognise what deserves your attention next.",
+      "action": "Take a short walk without filling the silence."
+    },
+    "reversed": {
+      "theme": "Reconnect thoughtfully",
+      "reflection": "Time alone can clarify things, but too much isolation may make questions feel larger. Notice whether reflection is helping you understand or keeping you in a loop. A grounded conversation with someone you trust can add perspective without taking away your independence.",
+      "action": "Share one unfinished thought with a trusted person."
+    }
+  },
+  {
+    "id": 10,
+    "name": "Wheel of Fortune",
+    "upright": {
+      "theme": "Respond to changing conditions",
+      "reflection": "Some parts of the day may not follow your preferred rhythm. Rather than treating every change as a verdict, look for the choices that remain available. Flexibility can help you use an opening or manage a setback without making it define everything.",
+      "action": "Adjust one plan to the conditions you actually have."
+    },
+    "reversed": {
+      "theme": "Work with what is here",
+      "reflection": "Repeated obstacles can make it feel as though nothing is moving. Look for a pattern you can influence without blaming yourself for events outside your control. A change in timing, expectations or method may be more useful than simply trying harder.",
+      "action": "Separate what you can influence from what you cannot."
+    }
+  },
+  {
+    "id": 11,
+    "name": "Justice",
+    "upright": {
+      "theme": "Look clearly and act fairly",
+      "reflection": "A balanced decision begins with accurate information and a willingness to consider consequences. Take responsibility for your part without accepting responsibility for everything. Today is a useful moment to make expectations explicit, check an assumption and choose a response you can stand behind.",
+      "action": "Check one important fact before making a decision."
+    },
+    "reversed": {
+      "theme": "Correct the imbalance",
+      "reflection": "Something may feel unfair, unclear or out of proportion. Before responding, distinguish the facts from your interpretation and consider which part can be addressed. Fairness does not always mean equal effort; it can mean making an unspoken expectation visible and negotiable.",
+      "action": "Clarify one responsibility or expectation in writing."
+    }
+  },
+  {
+    "id": 12,
+    "name": "The Hanged Man",
+    "upright": {
+      "theme": "Try a different perspective",
+      "reflection": "A pause can be useful when your usual approach is not helping. You do not need to force an immediate answer to prove you are making progress. Look at the situation from another angle and ask what becomes visible when you stop pushing.",
+      "action": "Describe the problem from a second point of view."
+    },
+    "reversed": {
+      "theme": "Turn waiting into a choice",
+      "reflection": "Waiting can be thoughtful, but it can also become a way to avoid a manageable decision. Notice whether your pause has a purpose or an end point. You can keep uncertainty in view while choosing a modest action that does not require certainty.",
+      "action": "Set a review time and choose one small step now."
+    }
+  },
+  {
+    "id": 13,
+    "name": "Death",
+    "upright": {
+      "theme": "Make space for a transition",
+      "reflection": "This card invites reflection on endings and change, not a prediction of physical death. Something may have outgrown its old form. Let yourself acknowledge what mattered while considering what you can release, simplify or carry forward into the next stage.",
+      "action": "Choose one outdated commitment or habit to review."
+    },
+    "reversed": {
+      "theme": "Release at a humane pace",
+      "reflection": "Change can be difficult even when you recognise its value. You do not have to force a dramatic break or pretend you feel ready. Consider which small attachment is keeping an old pattern in place, and approach it with patience rather than punishment.",
+      "action": "Let go of one small thing you no longer need."
+    }
+  },
+  {
+    "id": 14,
+    "name": "Temperance",
+    "upright": {
+      "theme": "Find a sustainable rhythm",
+      "reflection": "A workable balance is usually built through small adjustments. Bring together effort and rest, your needs and other people’s needs, or two approaches that seem opposed. Today, a thoughtful middle course may be more useful than swinging between extremes or demanding an instant solution.",
+      "action": "Make one small adjustment that improves your daily rhythm."
+    },
+    "reversed": {
+      "theme": "Notice what is out of balance",
+      "reflection": "An uneven pace may be making ordinary tasks feel harder. Look for where you are overextending, postponing recovery or trying to solve everything at once. Balance does not require equal portions of everything; it requires a rhythm that your actual circumstances can support.",
+      "action": "Reduce one excess and restore one basic need."
+    }
+  },
+  {
+    "id": 15,
+    "name": "The Devil",
+    "upright": {
+      "theme": "Notice what limits your choice",
+      "reflection": "A habit, expectation or short-term reward may be taking more room than you intended. This card is an invitation to examine that pattern without shame. Look for the moment where you still have a choice, however small, and begin there.",
+      "action": "Identify one trigger and plan a different response."
+    },
+    "reversed": {
+      "theme": "Loosen an unhelpful pattern",
+      "reflection": "Recognising a restrictive pattern can be a meaningful beginning, even if changing it takes time. Avoid measuring progress only by perfect consistency. Support, practical boundaries and a smaller first step can help you create more room for choices that fit your values.",
+      "action": "Put one helpful boundary between you and an unwanted habit."
+    }
+  },
+  {
+    "id": 16,
+    "name": "The Tower",
+    "upright": {
+      "theme": "Rebuild from what is true",
+      "reflection": "When an assumption stops holding up, it can be unsettling. This card does not forecast disaster; it asks what needs a more honest foundation. Focus on the immediate facts and the next practical step rather than trying to rebuild everything at once.",
+      "action": "Review one assumption and update your plan accordingly."
+    },
+    "reversed": {
+      "theme": "Make a manageable adjustment",
+      "reflection": "You may be noticing strain before a situation forces a larger change. Consider what you have been reluctant to acknowledge and whether a modest adjustment could help. You do not need a dramatic upheaval to choose a more honest or workable approach today.",
+      "action": "Address one small issue you have been putting off."
+    }
+  },
+  {
+    "id": 17,
+    "name": "The Star",
+    "upright": {
+      "theme": "Leave room for hope",
+      "reflection": "Hope can be quiet and practical rather than a promise that everything will work out. Notice what restores a little energy or helps you imagine a way forward. You can acknowledge disappointment while making room for one possibility that deserves gentle attention.",
+      "action": "Do one small thing that restores your sense of possibility."
+    },
+    "reversed": {
+      "theme": "Keep hope close to the ground",
+      "reflection": "When encouragement feels distant, ambitious reassurance may not help. Start with what is real and available: one supportive person, one useful routine or one task you can finish. Small evidence of care can matter more than forcing yourself to feel optimistic.",
+      "action": "Notice one thing that helped you get through today."
+    }
+  },
+  {
+    "id": 18,
+    "name": "The Moon",
+    "upright": {
+      "theme": "Move carefully through uncertainty",
+      "reflection": "Incomplete information can make imagination fill the gaps. Take your feelings seriously without treating them as proof of what is happening. Today, a slower pace and a clear question may help more than speculation, especially when another person’s intentions are involved.",
+      "action": "List what you know and what still needs checking."
+    },
+    "reversed": {
+      "theme": "Let the picture become clearer",
+      "reflection": "A confusing situation may become easier to understand when you separate observation from worry. Clarity can arrive gradually rather than as one complete answer. Give yourself permission to revise an interpretation when new information appears, without judging yourself for the earlier uncertainty.",
+      "action": "Check one assumption with a neutral, direct question."
+    }
+  },
+  {
+    "id": 19,
+    "name": "The Sun",
+    "upright": {
+      "theme": "Notice what is working",
+      "reflection": "There may be value in acknowledging progress before moving to the next demand. Let yourself enjoy something straightforward: a useful conversation, a finished task or time with someone you like. Confidence can grow from recognising genuine strengths rather than pretending there are no difficulties.",
+      "action": "Name one specific achievement and give it a moment of attention."
+    },
+    "reversed": {
+      "theme": "Make enjoyment less demanding",
+      "reflection": "A good day does not have to look impressive from the outside. Notice whether comparison, perfection or an expectation to feel happy is blocking a simpler pleasure. You can make room for something nourishing without requiring it to solve every concern.",
+      "action": "Choose one enjoyable activity without measuring its productivity."
+    }
+  },
+  {
+    "id": 20,
+    "name": "Judgement",
+    "upright": {
+      "theme": "Respond to what you have learned",
+      "reflection": "Looking back can help when it leads to a clearer choice rather than another round of blame. Consider what experience has taught you about your needs and responsibilities. Today offers a chance to respond more deliberately, even if the next step is modest.",
+      "action": "Write one lesson and one action you can take from it."
+    },
+    "reversed": {
+      "theme": "Quiet the inner verdict",
+      "reflection": "Harsh self-evaluation can make useful reflection difficult. Distinguish a behaviour you want to change from a fixed judgement about who you are. You can acknowledge a mistake, seek perspective and make a repair without turning the experience into a permanent sentence.",
+      "action": "Replace one global self-criticism with a specific, workable observation."
+    }
+  },
+  {
+    "id": 21,
+    "name": "The World",
+    "upright": {
+      "theme": "Recognise a completed cycle",
+      "reflection": "Finishing deserves attention, even when there is more to do. Take stock of what has changed, what you have learned and what can now be put down. A thoughtful ending can give you a clearer starting point than immediately rushing into the next project.",
+      "action": "Mark one completion before choosing the next commitment."
+    },
+    "reversed": {
+      "theme": "Define what finished means",
+      "reflection": "A task or chapter may be lingering because its ending is unclear. Consider whether one practical detail remains or whether you are asking for an impossible sense of perfection. A clear stopping point can help you preserve what you have gained and move on.",
+      "action": "Write a realistic definition of done for one open task."
+    }
+  },
+  {
+    "id": 22,
+    "name": "Ace of Wands",
+    "upright": {
+      "theme": "Follow a useful spark",
+      "reflection": "An idea or burst of energy may be asking for a first experiment. You do not need to decide its entire future today. Give curiosity a practical outlet, and notice whether the activity continues to interest you once you begin doing it.",
+      "action": "Spend fifteen minutes testing one idea."
+    },
+    "reversed": {
+      "theme": "Give the spark some space",
+      "reflection": "Enthusiasm can fade when an idea is burdened with too many expectations. Consider whether you need rest, clearer direction or a smaller starting point. A quiet beginning still counts; you do not have to feel inspired before taking a useful step.",
+      "action": "Shrink a creative task until it feels approachable."
+    }
+  },
+  {
+    "id": 23,
+    "name": "Two of Wands",
+    "upright": {
+      "theme": "Choose a direction",
+      "reflection": "Looking ahead can help you turn a broad ambition into a workable choice. Compare a couple of realistic routes rather than trying to explore every possibility. Your plan can remain flexible while still giving today’s effort a destination and a reason.",
+      "action": "Compare two options using the same three priorities."
+    },
+    "reversed": {
+      "theme": "Bring the horizon closer",
+      "reflection": "Planning may be protecting you from the discomfort of beginning. Alternatively, you may need more information before committing. Ask which is true today. A small, reversible action can help you learn without requiring a complete decision about the distant future.",
+      "action": "Take one reversible step that gives you useful information."
+    }
+  },
+  {
+    "id": 24,
+    "name": "Three of Wands",
+    "upright": {
+      "theme": "Look beyond the first step",
+      "reflection": "Once something is underway, it helps to lift your attention beyond the immediate task. Consider what support, timing or connection could help it develop. Progress may depend on patient follow-through rather than a dramatic expansion or an entirely new direction.",
+      "action": "Identify one next-stage requirement and start preparing it."
+    },
+    "reversed": {
+      "theme": "Adjust the route",
+      "reflection": "A delay does not automatically mean your effort was wasted. Look at whether your expectations, resources or timing need revision. You can stay interested in the wider goal while choosing a more realistic next step for the conditions you have now.",
+      "action": "Revise one expectation using current information."
+    }
+  },
+  {
+    "id": 25,
+    "name": "Four of Wands",
+    "upright": {
+      "theme": "Enjoy a shared foundation",
+      "reflection": "A sense of belonging can come from ordinary moments of welcome and recognition. Notice the people, places or routines that help you feel settled. You do not need a major milestone to acknowledge shared effort or make a small space for celebration.",
+      "action": "Thank someone for a specific contribution."
+    },
+    "reversed": {
+      "theme": "Make belonging more practical",
+      "reflection": "A celebration or shared space may carry expectations that do not quite fit. Consider what would help you feel more comfortable or included. You can appreciate connection while asking for a boundary, a quieter pace or a different way of taking part.",
+      "action": "Suggest one small change that makes a shared activity easier."
+    }
+  },
+  {
+    "id": 26,
+    "name": "Five of Wands",
+    "upright": {
+      "theme": "Use disagreement constructively",
+      "reflection": "Different approaches do not have to become a personal contest. Look for the useful information beneath competing opinions, and be clear about the purpose of the discussion. Today, a fair process and a shared goal may help more than winning the argument.",
+      "action": "Ask what outcome everyone is trying to achieve."
+    },
+    "reversed": {
+      "theme": "Choose which conflicts matter",
+      "reflection": "Avoiding every disagreement can leave important needs unspoken, while engaging every provocation can drain your attention. Consider which issue genuinely needs a conversation. A calm, specific statement may be enough to clarify your position without turning the exchange into a battle.",
+      "action": "Address one relevant issue and leave an unnecessary argument alone."
+    }
+  },
+  {
+    "id": 27,
+    "name": "Six of Wands",
+    "upright": {
+      "theme": "Acknowledge earned progress",
+      "reflection": "Recognition can be encouraging, but it is most useful when connected to real effort. Notice what you did well and who helped make it possible. Let that information strengthen your next step rather than turning success into pressure to impress everyone again.",
+      "action": "Record one thing that worked and why."
+    },
+    "reversed": {
+      "theme": "Define success for yourself",
+      "reflection": "A lack of visible praise does not tell the whole story about your work. Consider whether you are relying on outside approval to decide what counts. Ground your assessment in your values, the effort involved and the effect your choices actually had.",
+      "action": "Choose one measure of progress that does not depend on applause."
+    }
+  },
+  {
+    "id": 28,
+    "name": "Seven of Wands",
+    "upright": {
+      "theme": "Protect what matters",
+      "reflection": "A boundary may need clear expression today. You can stand behind a priority without treating every question as an attack. Decide what deserves your effort, explain your position simply and leave room for a reasonable conversation where one is possible.",
+      "action": "State one boundary in a calm, direct sentence."
+    },
+    "reversed": {
+      "theme": "Spend your energy selectively",
+      "reflection": "Constant defensiveness can make even ordinary requests feel exhausting. Notice whether you are protecting something important or reacting to the expectation of criticism. You do not have to justify every preference; choose the boundary that matters and release a less useful struggle.",
+      "action": "Stop defending one decision that needs no further explanation."
+    }
+  },
+  {
+    "id": 29,
+    "name": "Eight of Wands",
+    "upright": {
+      "theme": "Move with clear intention",
+      "reflection": "When activity speeds up, clarity becomes especially useful. Check the message, destination and next action before adding more momentum. A quick response can still be thoughtful, and a short pause may prevent confusion that would take longer to resolve later.",
+      "action": "Confirm the key detail before sending or starting something."
+    },
+    "reversed": {
+      "theme": "Make room for a slower pace",
+      "reflection": "Too many messages or shifting plans can scatter your attention. A delay may be frustrating, but it can also offer a chance to check what is still relevant. Reduce unnecessary urgency and decide which response truly needs your attention today.",
+      "action": "Choose one communication to clarify and postpone the rest briefly."
+    }
+  },
+  {
+    "id": 30,
+    "name": "Nine of Wands",
+    "upright": {
+      "theme": "Protect your remaining energy",
+      "reflection": "Persistence is useful, but it does not require ignoring fatigue. Notice what you have already managed and what support would make the next step more sustainable. You can remain committed while adjusting the pace, asking for help or protecting a needed break.",
+      "action": "Schedule a short recovery period before the next demanding task."
+    },
+    "reversed": {
+      "theme": "Distinguish caution from exhaustion",
+      "reflection": "Past difficulty can make a new demand feel heavier than it is. Consider whether you need a stronger boundary, more support or simply time to recover. You do not have to prove resilience by handling every challenge without assistance.",
+      "action": "Identify the one support that would reduce today’s strain."
+    }
+  },
+  {
+    "id": 31,
+    "name": "Ten of Wands",
+    "upright": {
+      "theme": "Share the weight",
+      "reflection": "Responsibility can build gradually until everything feels equally urgent. Look at what is genuinely yours to carry and what can be delegated, delayed or simplified. Finishing well may depend on reducing the load rather than adding another burst of effort.",
+      "action": "Remove or share one unnecessary task."
+    },
+    "reversed": {
+      "theme": "Put down a burden thoughtfully",
+      "reflection": "Releasing responsibility can feel uncomfortable when you are used to being dependable. Consider whether a commitment is still necessary and whether someone else could take a fair share. A clear handover or an honest limit can be more responsible than silent overload.",
+      "action": "Have one practical conversation about sharing the workload."
+    }
+  },
+  {
+    "id": 32,
+    "name": "Page of Wands",
+    "upright": {
+      "theme": "Learn through exploration",
+      "reflection": "A playful approach may reveal something that a perfect plan would miss. Follow an interest far enough to learn from it, without demanding immediate expertise or a polished result. Today can be about gathering experience and noticing what makes you want to continue.",
+      "action": "Try a small activity you have been curious about."
+    },
+    "reversed": {
+      "theme": "Give curiosity a container",
+      "reflection": "Many ideas can be exciting and still leave you unsure where to start. Choose one experiment with a limited time or cost, rather than committing to every possibility. Focus can protect curiosity by making it easier to turn interest into experience.",
+      "action": "Pick one idea to test and save the others for later."
+    }
+  },
+  {
+    "id": 33,
+    "name": "Knight of Wands",
+    "upright": {
+      "theme": "Act with purposeful courage",
+      "reflection": "Energy is most useful when it serves a clear intention. Bring confidence to a task you have been avoiding, while checking that your pace leaves room for other people and practical details. Boldness can be deliberate rather than hurried or confrontational.",
+      "action": "Take one confident action after checking its likely effects."
+    },
+    "reversed": {
+      "theme": "Pause the rush",
+      "reflection": "Impatience can make movement feel like progress even when the direction is unclear. Notice whether excitement, frustration or a wish to escape is driving your next step. A short pause can help you keep the useful energy without creating avoidable complications.",
+      "action": "Wait ten minutes before an impulsive commitment."
+    }
+  },
+  {
+    "id": 34,
+    "name": "Queen of Wands",
+    "upright": {
+      "theme": "Let your presence be warm",
+      "reflection": "Confidence does not have to be loud to be visible. Bring your interests, strengths and personality into something you do today, and make room for other people to do the same. Generosity and a clear sense of self can support each other.",
+      "action": "Share one idea without apologising for having it."
+    },
+    "reversed": {
+      "theme": "Return to your own centre",
+      "reflection": "Comparison or overextension may be making it harder to feel like yourself. Notice where you are performing confidence rather than drawing on something genuine. A quieter boundary or a familiar creative practice can help you reconnect with your own pace and preferences.",
+      "action": "Spend time on something you enjoy without an audience."
+    }
+  },
+  {
+    "id": 35,
+    "name": "King of Wands",
+    "upright": {
+      "theme": "Lead with a clear purpose",
+      "reflection": "A compelling direction becomes stronger when others can understand how to contribute. Focus on the purpose, the next decision and the support people need. Leadership today may mean creating clarity and making space for useful ideas rather than controlling every detail.",
+      "action": "Explain the goal and invite one practical suggestion."
+    },
+    "reversed": {
+      "theme": "Make ambition more accountable",
+      "reflection": "A strong vision can lose its value if it leaves little room for feedback or realistic limits. Consider whether urgency is making you dismiss useful concerns. You can remain committed to the goal while adjusting the method and taking responsibility for its effects.",
+      "action": "Ask for feedback on one part of your plan."
+    }
+  },
+  {
+    "id": 36,
+    "name": "Ace of Cups",
+    "upright": {
+      "theme": "Make room for connection",
+      "reflection": "A gentle opening may come through kindness, creativity or an honest emotional response. You do not need to label it immediately or expect it to become something larger. Notice what feels nourishing and allow a small act of care to be enough today.",
+      "action": "Offer or receive one simple gesture of kindness."
+    },
+    "reversed": {
+      "theme": "Attend to your emotional capacity",
+      "reflection": "When your attention is stretched, even welcome connection can feel difficult to receive. Notice whether you need rest, privacy or a way to express something you have held back. Caring for your own capacity can make future connection more genuine and sustainable.",
+      "action": "Name one feeling without trying to fix it immediately."
+    }
+  },
+  {
+    "id": 37,
+    "name": "Two of Cups",
+    "upright": {
+      "theme": "Meet with mutual respect",
+      "reflection": "Connection grows through attention, reciprocity and the freedom to speak honestly. Rather than guessing how another person feels, notice what is actually communicated. A small conversation about needs or expectations can help a relationship or collaboration become clearer and more balanced.",
+      "action": "Ask one open question and listen without preparing your reply."
+    },
+    "reversed": {
+      "theme": "Restore a balanced exchange",
+      "reflection": "A connection may feel uneven or difficult to read. Consider what you are offering, what you need and what has actually been agreed. You can invite clarity without demanding a particular answer, and respect both your boundaries and the other person’s choices.",
+      "action": "Clarify one expectation instead of relying on an assumption."
+    }
+  },
+  {
+    "id": 38,
+    "name": "Three of Cups",
+    "upright": {
+      "theme": "Let support be shared",
+      "reflection": "You may benefit from connection that does not require you to perform or solve everything. Notice who helps you feel welcome, and consider how you can contribute in return. Shared enjoyment can be modest: a message, a conversation or a small acknowledgement of progress.",
+      "action": "Reach out to someone whose company feels supportive."
+    },
+    "reversed": {
+      "theme": "Choose connection that fits",
+      "reflection": "Social plans can be enjoyable and still leave you overextended. Notice whether a group dynamic supports your values or makes it difficult to be yourself. You can step back from comparison, protect privacy and choose a smaller or more comfortable form of connection.",
+      "action": "Choose one social commitment freely rather than from obligation."
+    }
+  },
+  {
+    "id": 39,
+    "name": "Four of Cups",
+    "upright": {
+      "theme": "Look again with fresh attention",
+      "reflection": "Dissatisfaction can be useful information, but it may also narrow what you notice. Give yourself space to understand what feels missing before dismissing every available option. A small change in routine or perspective could help you see something worth exploring today.",
+      "action": "Reconsider one option you dismissed without much attention."
+    },
+    "reversed": {
+      "theme": "Rejoin at your own pace",
+      "reflection": "After a period of withdrawal or uncertainty, a modest opening may feel more manageable than a complete change. Notice what you are ready to engage with now. You can begin participating again without pretending that every unanswered question has been resolved.",
+      "action": "Accept one manageable invitation or opportunity to engage."
+    }
+  },
+  {
+    "id": 40,
+    "name": "Five of Cups",
+    "upright": {
+      "theme": "Honour what feels disappointing",
+      "reflection": "A disappointment can deserve attention without becoming the whole picture. Let yourself recognise what did not work, then gently notice what remains available. You do not have to rush towards a positive interpretation; a practical next step can coexist with sadness.",
+      "action": "Name one loss and one support that remains."
+    },
+    "reversed": {
+      "theme": "Allow a different next chapter",
+      "reflection": "You may be ready to relate to a disappointment differently, even if it still matters. Moving forward does not require forgetting or minimising what happened. Consider which lesson is useful to carry, and which repeated judgement no longer helps you act with care.",
+      "action": "Choose one small action that is not organised around the past."
+    }
+  },
+  {
+    "id": 41,
+    "name": "Six of Cups",
+    "upright": {
+      "theme": "Draw on a kind memory",
+      "reflection": "A familiar practice or memory may offer comfort and perspective today. Take what is nourishing without assuming the past was simpler or better in every way. You can bring an old source of warmth into the present in a form that fits your life now.",
+      "action": "Revisit a small activity that once brought you uncomplicated enjoyment."
+    },
+    "reversed": {
+      "theme": "Let the past inform, not decide",
+      "reflection": "Old experiences can shape your expectations even when the present situation is different. Notice where a memory is helping you and where it is narrowing your choices. You can appreciate what came before while allowing yourself to need something different today.",
+      "action": "Compare one old assumption with the facts of the present."
+    }
+  },
+  {
+    "id": 42,
+    "name": "Seven of Cups",
+    "upright": {
+      "theme": "Choose one possibility to test",
+      "reflection": "Many options can be inspiring, but they can also make it difficult to begin. Separate what is appealing in imagination from what fits your time, values and resources. You do not need to reject every other possibility to explore one practical choice.",
+      "action": "Choose one option and identify its first real-world requirement."
+    },
+    "reversed": {
+      "theme": "Turn clarity into a small choice",
+      "reflection": "Narrowing your options can bring relief, but certainty does not have to be perfect. Consider what you now understand about your priorities and what still needs testing. A limited commitment can help you learn more than continuing to compare every possible outcome.",
+      "action": "Make one bounded decision with a clear review point."
+    }
+  },
+  {
+    "id": 43,
+    "name": "Eight of Cups",
+    "upright": {
+      "theme": "Notice what no longer fits",
+      "reflection": "Something can have value and still no longer meet your needs. Consider whether staying is a deliberate choice or simply familiar. You do not have to make a dramatic departure today; acknowledging the mismatch can be the first honest step towards change.",
+      "action": "Write down what you need that the current arrangement lacks."
+    },
+    "reversed": {
+      "theme": "Decide whether to stay or change",
+      "reflection": "Ambivalence may be asking for a closer look rather than an immediate exit. Consider what could realistically improve and what you have already tried. A thoughtful decision includes practical needs, boundaries and support, not only the discomfort of staying or the appeal of leaving.",
+      "action": "Name one condition that would make staying workable."
+    }
+  },
+  {
+    "id": 44,
+    "name": "Nine of Cups",
+    "upright": {
+      "theme": "Appreciate a genuine satisfaction",
+      "reflection": "Enjoyment can be meaningful without being extravagant or permanent. Notice something you wanted that is now part of your life, and give it a moment of appreciation. Satisfaction becomes steadier when it is connected to your own needs rather than comparison with others.",
+      "action": "Enjoy one existing comfort without immediately seeking an upgrade."
+    },
+    "reversed": {
+      "theme": "Ask what enough feels like",
+      "reflection": "An achievement or purchase may not provide the feeling you expected. Rather than judging yourself for that gap, consider which need is still unmet. More of the same may not be the answer; a different kind of connection, rest or purpose could matter.",
+      "action": "Identify the feeling you hoped an outcome would provide."
+    }
+  },
+  {
+    "id": 45,
+    "name": "Ten of Cups",
+    "upright": {
+      "theme": "Nurture everyday belonging",
+      "reflection": "A supportive life is often built through ordinary acts of attention rather than a perfect picture. Notice what helps the people involved feel safe, respected and included. You can contribute to connection today without taking responsibility for everyone’s feelings or every future outcome.",
+      "action": "Make time for one undistracted conversation or shared activity."
+    },
+    "reversed": {
+      "theme": "Let connection be imperfect",
+      "reflection": "An ideal of harmony can make real differences feel like failure. Consider whether everyone has room to express their needs, including you. A relationship or household can benefit from honest adjustments; meaningful connection does not require constant agreement or a flawless appearance.",
+      "action": "Discuss one everyday need without blaming anyone."
+    }
+  },
+  {
+    "id": 46,
+    "name": "Page of Cups",
+    "upright": {
+      "theme": "Notice a gentle feeling",
+      "reflection": "A creative thought or emotional response may be worth exploring before you dismiss it. Approach it with curiosity rather than a demand for certainty. You can express something small and sincere while respecting the fact that other people may respond in their own way.",
+      "action": "Write or share one honest, uncomplicated thought."
+    },
+    "reversed": {
+      "theme": "Give feelings a thoughtful outlet",
+      "reflection": "Sensitivity can be useful, but it may become confusing when every reaction needs an immediate response. Notice what you feel and give it a little space. A private creative outlet or a calmer conversation can help you express yourself without relying on someone else to resolve it.",
+      "action": "Draft what you want to say before deciding whether to send it."
+    }
+  },
+  {
+    "id": 47,
+    "name": "Knight of Cups",
+    "upright": {
+      "theme": "Bring sincerity into action",
+      "reflection": "A meaningful intention becomes clearer through the way you act. Let imagination and care inform a gesture, but keep it grounded in what is welcome and realistic. You can express interest or appreciation without expecting a particular response or promising more than you can offer.",
+      "action": "Make one sincere gesture that respects the other person’s boundaries."
+    },
+    "reversed": {
+      "theme": "Check the promise behind the feeling",
+      "reflection": "An appealing idea can sometimes be stronger than the practical commitment behind it. Notice whether you are idealising an outcome or offering something you cannot sustain. Sincerity includes being honest about limits, especially when emotions or expectations are running high.",
+      "action": "Match one promise to what you can realistically deliver."
+    }
+  },
+  {
+    "id": 48,
+    "name": "Queen of Cups",
+    "upright": {
+      "theme": "Listen with care and boundaries",
+      "reflection": "Attentive listening can help without requiring you to absorb every feeling in the room. Notice your own response as well as what another person is sharing. Compassion becomes more sustainable when it includes clear boundaries and the freedom not to have an immediate answer.",
+      "action": "Listen closely while keeping one personal boundary intact."
+    },
+    "reversed": {
+      "theme": "Separate care from over-responsibility",
+      "reflection": "It can be difficult to tell where empathy ends and responsibility for another person begins. Notice whether you are setting aside your own needs to keep everyone comfortable. You can care deeply while allowing others to make choices and manage feelings that belong to them.",
+      "action": "Ask yourself what is yours to handle and what is not."
+    }
+  },
+  {
+    "id": 49,
+    "name": "King of Cups",
+    "upright": {
+      "theme": "Respond with emotional steadiness",
+      "reflection": "A strong feeling does not have to dictate the tone of your next action. Take enough time to understand it, then choose a response that fits your values. Today, steadiness may mean being honest and considerate rather than hiding emotion or pretending not to care.",
+      "action": "Pause, name your feeling and choose a deliberate response."
+    },
+    "reversed": {
+      "theme": "Create space before responding",
+      "reflection": "When emotions are crowded or suppressed, they can emerge in ways you did not intend. Notice whether you need a pause, a private conversation or practical support. You can take your feelings seriously without using them to control an exchange or avoid a necessary discussion.",
+      "action": "Return to a difficult conversation when you can speak more clearly."
+    }
+  },
+  {
+    "id": 50,
+    "name": "Ace of Swords",
+    "upright": {
+      "theme": "Find a clear starting point",
+      "reflection": "A useful insight may begin with a precise question or an honest distinction. Separate the central issue from surrounding noise, and look for evidence that supports your next step. Clarity does not require knowing everything; it can mean knowing what to examine first.",
+      "action": "Write the main question in one plain sentence."
+    },
+    "reversed": {
+      "theme": "Check before concluding",
+      "reflection": "A strong opinion can feel like clarity even when information is incomplete. Notice where wording, assumptions or competing definitions are creating confusion. Slow down enough to check what a statement actually means before using it as the basis for a decision.",
+      "action": "Verify one assumption with a reliable source or direct question."
+    }
+  },
+  {
+    "id": 51,
+    "name": "Two of Swords",
+    "upright": {
+      "theme": "Make room for a considered choice",
+      "reflection": "A decision may feel difficult because each option protects something important. Rather than forcing certainty, name the trade-off and identify what information is missing. You can give the choice a fair process without postponing it indefinitely or pretending there is a perfect answer.",
+      "action": "Write one benefit and one cost for each option."
+    },
+    "reversed": {
+      "theme": "Reduce the pressure around a decision",
+      "reflection": "Too much information or too many opinions can make a choice harder rather than clearer. Return to the question you actually need to answer today. A limited next step may be enough while you gather the information needed for a larger decision.",
+      "action": "Choose the smallest decision that moves the situation forward."
+    }
+  },
+  {
+    "id": 52,
+    "name": "Three of Swords",
+    "upright": {
+      "theme": "Meet hurt with honesty",
+      "reflection": "A painful feeling deserves acknowledgement without being turned into a prediction about the future. Notice what happened, what you need and which interpretation you may be adding. Give yourself room for care and perspective before deciding what the experience means for everything else.",
+      "action": "Tell a trusted person what support would help today."
+    },
+    "reversed": {
+      "theme": "Allow repair to be gradual",
+      "reflection": "Moving through hurt rarely follows a perfectly straight line. You do not need to force forgiveness or prove that you are over something. Consider what would make today a little more manageable, and let a small act of care count as progress.",
+      "action": "Choose one gentle action that supports you without demanding closure."
+    }
+  },
+  {
+    "id": 53,
+    "name": "Four of Swords",
+    "upright": {
+      "theme": "Let rest have a purpose",
+      "reflection": "A pause can protect the quality of your next decision. If your attention feels worn down, step away from unnecessary input and give yourself a manageable period of quiet. Rest is not a verdict on your ambition; it can be part of using your energy wisely.",
+      "action": "Take a short break without adding another source of stimulation."
+    },
+    "reversed": {
+      "theme": "Return at a sustainable pace",
+      "reflection": "You may be ready to re-engage, or you may be noticing how much rest you still need. Avoid treating either response as a failure. Choose a pace that reflects your current capacity, with room to adjust after you see how the first step feels.",
+      "action": "Resume one manageable task and leave space afterwards."
+    }
+  },
+  {
+    "id": 54,
+    "name": "Five of Swords",
+    "upright": {
+      "theme": "Consider the cost of winning",
+      "reflection": "An argument can be won while leaving the underlying issue unresolved. Before responding, ask what outcome would actually help and what the exchange is costing. You can stand up for yourself without using every available advantage or continuing a conflict that has lost its purpose.",
+      "action": "Choose a useful outcome instead of a final word."
+    },
+    "reversed": {
+      "theme": "Make space for a better exchange",
+      "reflection": "A tense interaction may benefit from a reset, but repair needs more than pretending nothing happened. Consider your own contribution and what boundary still matters. A specific acknowledgement or a calmer conversation can be useful without requiring you to accept all the blame.",
+      "action": "Offer one clear repair or request a more respectful discussion."
+    }
+  },
+  {
+    "id": 55,
+    "name": "Six of Swords",
+    "upright": {
+      "theme": "Move towards a calmer setting",
+      "reflection": "A transition can be worthwhile even when it includes sadness or unfinished questions. Focus on what helps you move from the current difficulty towards something more workable. You do not have to leave every concern behind at once to take a useful step.",
+      "action": "Change one practical condition that reduces unnecessary strain."
+    },
+    "reversed": {
+      "theme": "Notice what keeps travelling with you",
+      "reflection": "Changing the setting may not resolve every pattern involved. Consider whether an old expectation, unresolved detail or lack of support is making the transition harder. You can continue moving forward while addressing one thing that needs attention rather than demanding a clean break from everything.",
+      "action": "Identify one unfinished detail and decide how to handle it."
+    }
+  },
+  {
+    "id": 56,
+    "name": "Seven of Swords",
+    "upright": {
+      "theme": "Act with thought and integrity",
+      "reflection": "A careful approach can be useful, especially when privacy or timing matters. Check that your strategy remains consistent with your values and responsibilities. This card is not evidence that someone is deceiving you; focus on the information and choices you can actually verify.",
+      "action": "Review whether one plan is both practical and honest."
+    },
+    "reversed": {
+      "theme": "Bring an unclear matter into the open",
+      "reflection": "Avoidance can make a manageable issue harder to address. Consider whether you need to clarify a misunderstanding, acknowledge an omission or ask a direct question. Honesty can be proportionate and respectful; you do not need to reveal private details that are not relevant.",
+      "action": "Clarify one relevant fact you have been reluctant to discuss."
+    }
+  },
+  {
+    "id": 57,
+    "name": "Eight of Swords",
+    "upright": {
+      "theme": "Look for a small area of choice",
+      "reflection": "A situation may feel more restrictive when every possible step seems to carry a risk. Acknowledge the real limits, then look for one choice that remains available. Outside perspective or practical support may help you see an option that is difficult to notice alone.",
+      "action": "List one constraint and one action still within reach."
+    },
+    "reversed": {
+      "theme": "Practise a little more freedom",
+      "reflection": "Recognising an option does not always make it easy to take. Give yourself room to test a different response without demanding immediate confidence. A small, supported choice can help you learn which limits are fixed and which expectations can be reconsidered.",
+      "action": "Try one safe alternative to your usual response."
+    }
+  },
+  {
+    "id": 58,
+    "name": "Nine of Swords",
+    "upright": {
+      "theme": "Give worry a clear boundary",
+      "reflection": "Worry can make possibilities feel as immediate as facts. Notice what is known, what is uncertain and what action would genuinely help today. You do not need to resolve every fear in one sitting; support and a practical next step may be more useful than repeated analysis.",
+      "action": "Write down the concern and one appropriate next step."
+    },
+    "reversed": {
+      "theme": "Let support interrupt the loop",
+      "reflection": "You may be ready to speak about a worry you have been carrying privately. Choose someone who can listen or help you think through the practical details. Relief does not have to arrive all at once; a little shared perspective can still make a difference.",
+      "action": "Tell someone you trust which concern keeps returning."
+    }
+  },
+  {
+    "id": 59,
+    "name": "Ten of Swords",
+    "upright": {
+      "theme": "Acknowledge an ending without defining yourself by it",
+      "reflection": "A difficult ending can feel larger than the situation it belongs to. Give yourself permission to recognise that something has reached its limit, without deciding that every future possibility is closed. Focus first on support, rest and the practical details of what comes next.",
+      "action": "Choose one stabilising action rather than solving the whole future."
+    },
+    "reversed": {
+      "theme": "Take recovery one step at a time",
+      "reflection": "After a hard experience, progress may be uneven and easy to overlook. Notice what is slightly more manageable now, even if the situation is not fully resolved. You do not have to return to your old pace immediately or turn the experience into a positive lesson.",
+      "action": "Recognise one small sign of renewed capacity."
+    }
+  },
+  {
+    "id": 60,
+    "name": "Page of Swords",
+    "upright": {
+      "theme": "Ask a better question",
+      "reflection": "Curiosity becomes more useful when paired with careful listening. Investigate a detail, learn a new term or ask what a claim is based on before deciding where you stand. You can be alert and thoughtful without treating every conversation as something to challenge.",
+      "action": "Ask one precise question and listen to the full answer."
+    },
+    "reversed": {
+      "theme": "Slow the exchange down",
+      "reflection": "Quick reactions or incomplete information may be creating unnecessary friction. Check whether you are responding to what was actually said or to what you expect it to mean. A calmer question can protect both accuracy and the relationship better than an immediate correction.",
+      "action": "Reread a message before reacting or replying."
+    }
+  },
+  {
+    "id": 61,
+    "name": "Knight of Swords",
+    "upright": {
+      "theme": "Direct your energy carefully",
+      "reflection": "A clear objective can make decisive action useful today. Before moving quickly, check the facts and consider who will be affected. Courage and consideration can work together; a brief pause for context does not weaken your commitment to getting something important done.",
+      "action": "Confirm the facts, then take one focused action."
+    },
+    "reversed": {
+      "theme": "Leave room for thought",
+      "reflection": "Urgency can narrow your attention until only one outcome seems acceptable. Notice whether you are rushing past information or another person’s perspective. You can remain direct while changing your pace, asking a question or allowing a decision enough time to be responsible.",
+      "action": "Delay one non-urgent response until you can consider it fully."
+    }
+  },
+  {
+    "id": 62,
+    "name": "Queen of Swords",
+    "upright": {
+      "theme": "Be clear without being unkind",
+      "reflection": "A thoughtful boundary or honest statement can reduce confusion. Focus on the facts, the relevant need and what you can reasonably ask for. Clarity does not require harshness; you can speak directly while recognising that another person may have a different perspective.",
+      "action": "Express one need without accusation or unnecessary explanation."
+    },
+    "reversed": {
+      "theme": "Check the tone of your certainty",
+      "reflection": "Past disappointment can make sharp judgement feel protective. Notice whether your conclusion allows room for context and new information. You do not need to lower an important boundary, but you may be able to communicate it with more precision and less unnecessary hurt.",
+      "action": "Replace one judgement with a specific observation."
+    }
+  },
+  {
+    "id": 63,
+    "name": "King of Swords",
+    "upright": {
+      "theme": "Use reason responsibly",
+      "reflection": "A good decision combines clear thinking with an awareness of its effects. Organise the relevant information, state your reasoning and be willing to explain it. Authority is most useful when it creates fairness and understanding rather than making questions or disagreement feel unwelcome.",
+      "action": "Explain one decision using facts and a clear principle."
+    },
+    "reversed": {
+      "theme": "Question how certainty is being used",
+      "reflection": "Rules and confident language can hide weak reasoning as easily as they can support clarity. Look at whether a decision is transparent, proportionate and open to relevant evidence. Focus on the process you can improve rather than assigning motives you cannot verify.",
+      "action": "Ask what evidence would justify changing the current conclusion."
+    }
+  },
+  {
+    "id": 64,
+    "name": "Ace of Pentacles",
+    "upright": {
+      "theme": "Give an idea a practical beginning",
+      "reflection": "An opportunity becomes more meaningful when it has a workable first step. Look at what time, attention or materials it actually needs. You do not have to commit to a large investment today; a modest action can help you understand whether the idea fits your life.",
+      "action": "Identify and complete the smallest practical starting task."
+    },
+    "reversed": {
+      "theme": "Check the foundations first",
+      "reflection": "A promising idea may need clearer conditions before you commit more resources. Consider what is missing, what you can afford in time or effort and what would count as a useful test. Careful preparation is not the same as refusing an opportunity.",
+      "action": "Check one practical requirement before making a commitment."
+    }
+  },
+  {
+    "id": 65,
+    "name": "Two of Pentacles",
+    "upright": {
+      "theme": "Adjust with awareness",
+      "reflection": "Different responsibilities may need different amounts of attention today. Rather than trying to keep everything perfectly balanced, choose a realistic rhythm and review what can move. Flexibility works best when it includes honest limits instead of an expectation that you can absorb every new demand.",
+      "action": "Reschedule one task to make your day more manageable."
+    },
+    "reversed": {
+      "theme": "Reduce the number of moving parts",
+      "reflection": "When too many demands compete, even small changes can feel overwhelming. Start by identifying what truly needs your attention today and what can wait. Simplifying is not a failure of organisation; it may be the most practical response to the capacity you actually have.",
+      "action": "Pause or delegate one lower-priority commitment."
+    }
+  },
+  {
+    "id": 66,
+    "name": "Three of Pentacles",
+    "upright": {
+      "theme": "Build through shared skill",
+      "reflection": "Good work often improves when people understand how their contributions fit together. Make the task, expectations and feedback clear enough for others to participate. You do not need to know everything yourself; learning from a different skill set can strengthen the result.",
+      "action": "Ask for specific feedback on one piece of work."
+    },
+    "reversed": {
+      "theme": "Clarify how to work together",
+      "reflection": "A shared task may be struggling because roles or standards are unclear. Before assuming a lack of effort, check what each person understands they are responsible for. A short conversation about the process can be more useful than quietly correcting everything yourself.",
+      "action": "Agree who will do one task and what done means."
+    }
+  },
+  {
+    "id": 67,
+    "name": "Four of Pentacles",
+    "upright": {
+      "theme": "Protect what supports stability",
+      "reflection": "A practical boundary can help you feel more secure. Notice what you want to preserve and why, whether it is time, attention, money or a familiar routine. Protection is useful when it supports your life rather than making every change feel like a threat.",
+      "action": "Review one boundary and whether it serves your current needs."
+    },
+    "reversed": {
+      "theme": "Find a thoughtful way to loosen your grip",
+      "reflection": "Holding on can provide comfort, but it may also prevent a useful adjustment. Consider what you could share, release or change without undermining your stability. You do not need to prove generosity or flexibility by giving away more than you can comfortably manage.",
+      "action": "Release one low-value obligation or unused item."
+    }
+  },
+  {
+    "id": 68,
+    "name": "Five of Pentacles",
+    "upright": {
+      "theme": "Notice where support could help",
+      "reflection": "A difficult period can make it harder to ask for what you need. This card invites attention to practical support rather than predicting hardship. Consider which person, service or shared resource could help with one part of the situation, even if it cannot solve everything.",
+      "action": "Identify one appropriate source of practical assistance."
+    },
+    "reversed": {
+      "theme": "Take a modest step towards support",
+      "reflection": "A little help can matter even when the wider situation remains difficult. Notice whether pride, embarrassment or uncertainty is making support harder to receive. You can ask a specific question or accept a manageable offer without giving up your independence or needing to explain everything.",
+      "action": "Ask for help with one clearly defined need."
+    }
+  },
+  {
+    "id": 69,
+    "name": "Six of Pentacles",
+    "upright": {
+      "theme": "Keep giving and receiving balanced",
+      "reflection": "Support works best when it respects everyone’s dignity and capacity. Notice whether an exchange is freely chosen and whether expectations have been made clear. You can offer something useful or receive assistance without turning either position into a permanent obligation or measure of worth.",
+      "action": "Clarify what you can give or what help you need."
+    },
+    "reversed": {
+      "theme": "Check the terms of an exchange",
+      "reflection": "Generosity can become complicated when an unspoken expectation is attached. Consider whether you feel free to say no, ask a question or set a limit. A more balanced exchange may begin with naming what is being offered and what, if anything, is expected in return.",
+      "action": "Make one unspoken expectation explicit before agreeing."
+    }
+  },
+  {
+    "id": 70,
+    "name": "Seven of Pentacles",
+    "upright": {
+      "theme": "Review patient effort",
+      "reflection": "Progress can be hard to see while you are still doing the work. Take a moment to compare your effort with what is actually developing. Patience is useful when paired with observation; you can stay committed while adjusting a method that is not helping.",
+      "action": "Review one ongoing effort and choose a small improvement."
+    },
+    "reversed": {
+      "theme": "Reconsider where your effort goes",
+      "reflection": "Continuing simply because you have already invested time can keep an unhelpful pattern in place. Look at what the work is producing now and whether the goal still matters. A thoughtful adjustment or stopping point can protect your resources without dismissing what you learned.",
+      "action": "Choose whether one ongoing task needs more time, a change or an end."
+    }
+  },
+  {
+    "id": 71,
+    "name": "Eight of Pentacles",
+    "upright": {
+      "theme": "Let practice do its work",
+      "reflection": "A small improvement repeated with attention can be more valuable than a dramatic burst of effort. Focus on one aspect of a skill and give yourself useful feedback. Today is not about proving mastery; it is about making the next repetition a little more deliberate.",
+      "action": "Practise one specific skill for a focused period."
+    },
+    "reversed": {
+      "theme": "Reconnect effort with purpose",
+      "reflection": "Repetition can become draining when you lose sight of what it is meant to improve. Notice whether perfection, distraction or boredom is affecting your work. A clearer goal, a shorter practice session or constructive feedback may help you use your effort more effectively.",
+      "action": "Choose one quality to improve rather than polishing everything."
+    }
+  },
+  {
+    "id": 72,
+    "name": "Nine of Pentacles",
+    "upright": {
+      "theme": "Enjoy what you have cultivated",
+      "reflection": "Independence can include appreciating the habits, skills and choices that support your life. Notice a comfort or capability you have helped create, and allow yourself to enjoy it. You can value your own effort while recognising the people and circumstances that contributed too.",
+      "action": "Make time to appreciate one result of your steady effort."
+    },
+    "reversed": {
+      "theme": "Define enough on your own terms",
+      "reflection": "An appearance of success may not match how supported or comfortable you feel. Consider whether comparison is shaping your standards more than your actual needs. A simpler choice can sometimes bring more satisfaction than maintaining an image that asks too much of you.",
+      "action": "Identify one standard you can replace with a more personal measure."
+    }
+  },
+  {
+    "id": 73,
+    "name": "Ten of Pentacles",
+    "upright": {
+      "theme": "Think about what lasts",
+      "reflection": "Some choices matter because of the routines, knowledge or relationships they help sustain. Consider what you want to make easier for your future self or the people you care about. A practical improvement today can be a quiet contribution to something longer-lasting.",
+      "action": "Document or organise one useful thing for the future."
+    },
+    "reversed": {
+      "theme": "Review an inherited expectation",
+      "reflection": "A family, workplace or community tradition may need to be reconsidered rather than followed automatically. Notice what still offers support and what no longer fits. You can respect a shared history while making an honest choice about the responsibilities or values you carry forward.",
+      "action": "Discuss one long-standing expectation that needs clarification."
+    }
+  },
+  {
+    "id": 74,
+    "name": "Page of Pentacles",
+    "upright": {
+      "theme": "Learn by doing something concrete",
+      "reflection": "A useful skill often begins with attention to a small, ordinary task. Choose something you can practise or investigate today, and let the experience inform your next step. You do not need an impressive result to build a more reliable understanding of how something works.",
+      "action": "Complete one practical lesson or beginner-level exercise."
+    },
+    "reversed": {
+      "theme": "Make the plan easier to start",
+      "reflection": "An intention to learn can remain abstract when the first step is too large or vague. Consider what equipment, instruction or time you actually need. A smaller task with a clear end point can help you move from preparation into useful experience.",
+      "action": "Schedule one short learning session with a specific task."
+    }
+  },
+  {
+    "id": 75,
+    "name": "Knight of Pentacles",
+    "upright": {
+      "theme": "Rely on steady follow-through",
+      "reflection": "Consistency can be reassuring when the work is ordinary or progress feels slow. Focus on doing the next necessary task carefully rather than searching for a more exciting route. A sustainable routine includes enough flexibility to respond when circumstances genuinely require a change.",
+      "action": "Finish one routine task with full attention."
+    },
+    "reversed": {
+      "theme": "Refresh a routine that has become rigid",
+      "reflection": "A reliable method can gradually become a habit you follow without checking its value. Notice where persistence is helping and where it has turned into unnecessary repetition. A small change in sequence, pace or expectation may restore usefulness without requiring you to abandon the whole system.",
+      "action": "Improve one step in a familiar routine."
+    }
+  },
+  {
+    "id": 76,
+    "name": "Queen of Pentacles",
+    "upright": {
+      "theme": "Make care tangible",
+      "reflection": "Practical attention can turn a good intention into something genuinely helpful. Consider what would make your day or someone else’s day more comfortable, organised or manageable. Care does not need to be elaborate; a thoughtful use of available resources can be enough.",
+      "action": "Prepare one thing that makes the next few hours easier."
+    },
+    "reversed": {
+      "theme": "Include yourself in the care",
+      "reflection": "Keeping everything running can become an invisible responsibility. Notice whether your own comfort and limits are being left until last. You can remain generous while simplifying a task, asking someone to contribute or choosing a standard that is easier to sustain.",
+      "action": "Share one practical responsibility or lower an unnecessary standard."
+    }
+  },
+  {
+    "id": 77,
+    "name": "King of Pentacles",
+    "upright": {
+      "theme": "Use stability with generosity",
+      "reflection": "Experience and reliable habits can help you make a grounded decision today. Consider how to use what you know or have in a way that supports something worthwhile. Good stewardship includes realistic limits, attention to detail and respect for the people affected by your choices.",
+      "action": "Use one established strength to make a practical contribution."
+    },
+    "reversed": {
+      "theme": "Reassess what security means",
+      "reflection": "A wish to feel secure can become entangled with status, control or an expectation of constant productivity. Notice what actually supports your everyday life and what mainly protects an image. A grounded review can help you choose a more sustainable use of time and resources.",
+      "action": "Question one costly expectation that does not serve a real need."
+    }
+  }
+]
