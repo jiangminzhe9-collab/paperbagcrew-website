@@ -1,0 +1,10 @@
+(function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory();else root.ArcanaSpreads=factory();})(typeof globalThis!=='undefined'?globalThis:this,function(){
+'use strict';
+const layouts={3:[{name:'Your situation',prompt:'Which part of this reflection feels relevant to where you are now?'},{name:'The challenge',prompt:'What tension or assumption might be worth examining?'},{name:'A possible direction',prompt:'What possibility could you explore without treating it as a prediction?'}],5:[{name:'Your situation',prompt:'What is happening now, and what do you actually know?'},{name:'The obstacle',prompt:'Which difficulty is within your influence, and which is not?'},{name:'Available resources',prompt:'What support, skill, or perspective could you draw on?'},{name:'The influence of a choice',prompt:'What might change if you make a different choice? Consider more than one outcome.'},{name:'A step to consider',prompt:'What small, reversible action could help you learn more?'}]};
+function normalize(q){return q.normalize('NFKC').trim().replace(/\s+/g,' ').toLowerCase()}
+function hash(s){let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0}
+function key(q,n){return n+':'+normalize(q)}
+function draw(seed,q,n){if(!layouts[n])throw Error('Unsupported spread');let state=hash(seed+':'+key(q,n))||1;const random=()=>{state^=state<<13;state^=state>>>17;state^=state<<5;return(state>>>0)/4294967296};let ids=Array.from({length:78},(_,i)=>i);for(let i=ids.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[ids[i],ids[j]]=[ids[j],ids[i]]}return ids.slice(0,n).map(id=>({id,reversed:random()<.5}))}
+function valid(r){return !!r&&[3,5].includes(r.count)&&typeof r.question==='string'&&r.question.length>0&&r.question.length<=500&&Array.isArray(r.cards)&&r.cards.length===r.count&&new Set(r.cards.map(c=>c.id)).size===r.count&&r.cards.every(c=>Number.isInteger(c.id)&&c.id>=0&&c.id<78&&typeof c.reversed==='boolean')}
+return{layouts,normalize,key,draw,valid};
+});
