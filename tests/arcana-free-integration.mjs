@@ -1,0 +1,32 @@
+import {PGlite} from '@electric-sql/pglite';
+import {readFile} from 'node:fs/promises';
+import assert from 'node:assert/strict';
+import {renderReading,validateQuestion} from '../supabase/functions/arcana-service/renderer.mjs';
+const db=new PGlite();
+try {
+ await db.exec(`create role anon nologin; create role authenticated nologin; create role service_role nologin bypassrls; create schema auth;
+ create table auth.users(id uuid primary key); create function auth.uid() returns uuid language sql stable as $$select null::uuid$$;
+ create function auth.jwt() returns jsonb language sql stable as $$select '{}'::jsonb$$;
+ grant usage on schema auth to anon,authenticated,service_role;`);
+ await db.exec(await readFile(new URL('../docs/arcana-free-only-schema.sql',import.meta.url),'utf8'));
+ await db.exec('begin');
+ const {rows:[{id:user}]}=await db.query('insert into auth.users(id) values(gen_random_uuid()) returning id');
+ await db.exec('set local role service_role');
+ const question=validateQuestion({language:'zh'},'daily');
+ const {rows:[row]}=await db.query('select * from public.reserve_arcana_daily($1,$2::jsonb,$3)',[user,JSON.stringify(question),'tw']);
+ assert.equal(row.sku,'daily'); assert.equal(row.amount_minor,0); assert.equal(row.environment,'internal');
+ const generated=renderReading(row);
+ assert.equal(generated.cards.length,1); assert.equal(generated.reading.language,'zh');
+ assert(generated.readings.en); assert(generated.readings.zh);
+ const {rows:[saved]}=await db.query('select * from public.fulfill_arcana_order($1,$2::jsonb)',[row.id,JSON.stringify(generated)]);
+ assert.deepEqual(saved.result,generated);
+ const {rows:[history]}=await db.query('select * from public.arcana_orders where id=$1 and user_id=$2',[row.id,user]);
+ assert.deepEqual(history.result,generated);
+ const {rows:[retry]}=await db.query('select * from public.reserve_arcana_daily($1,$2::jsonb,$3)',[user,JSON.stringify(validateQuestion({language:'en'},'daily')),'global']);
+ assert.equal(retry.id,row.id);assert.equal(retry.draw_seed,row.draw_seed);assert.deepEqual(retry.question,row.question);
+ assert.deepEqual(renderReading(retry),generated); assert.deepEqual(retry.result,generated);
+ const {rows:[again]}=await db.query('select * from public.fulfill_arcana_order($1,$2::jsonb)',[retry.id,JSON.stringify({...generated,reading:{forged:'replacement'}})]);
+ assert.deepEqual(again.result,generated);
+ await db.exec('rollback');
+ console.log('PASS local actual SQL row -> production renderer -> SQL fulfill -> history snapshot; cross-market/language same-day retry preserves seed/cards/result; no hosted data touched.');
+} catch(e){console.error('FAIL integration:',e.message);process.exitCode=1;} finally{await db.close();}

@@ -1,66 +1,59 @@
-# DZ ARCANA — existing-site integration, not deployed
+# DZ ARCANA — free daily readings and private member history
 
-## Targets and observed baseline
+## Release boundary
 
-- Existing Paperbag Crew repository: `jiangminzhe9-collab/paperbagcrew-website`, baseline `2ec03c9763fec1a3d18f29f391369c0d05203ccc`.
-- Canonical application: `https://paperbagcrew.com/arcana/readings/`.
-- Paperbag Crew entrance: `?market=global&lang=en` (USD).
-- Dongze entrance: `?market=tw&lang=zh-Hant` (TWD), from the separate Dongze homepage patch. Market is not inferred from language. The visitor is sent to the canonical domain for the existing account session; no cross-domain automatic login is claimed.
-- Existing Supabase project: `yliacgixfhjhgjemvbpg`. Existing `paperbag-payments` v2 and all wallpaper commerce remain unchanged.
-- Baseline Cloudflare Workers production build succeeded for the stated commit. A main-branch push can affect the live site; this local code is not a deployment.
+This release is **free-only**. It adds one saved daily card per verified member and private history, not an operating paid tarot store. Global USD prices remain unconfirmed; Taiwan payment setup remains unavailable. Displayed Taiwan three-/five-card prices are proposed product information, not an enabled checkout.
 
-## Implemented flow
+The approved public frontend was committed as `3489bf1b2bc72c14315f2ad595f77c0384047611`; its Cloudflare build succeeded on 2026-10-31 at 16:12:14 UTC. That commit also contained an earlier, broader migration source. The broader database operation was not applied. The corrective release removes that active migration, rewrites the public schema draft to the same free-only SQL, and uses only `supabase/migrations/20261031161156_arcana_free_daily_history.sql`. The narrowed migration was applied to the hosted project as version `20261031161313`. Repository publication, database application, function deployment and an authenticated end-to-end test are separate checks: build success alone does not prove a member can draw.
 
-The public frontend contains questions, explicitly assigned examples and artwork references, not the complete paid reading engine. It uses the existing Supabase account SDK with a dedicated adapter, avoiding the old homepage redirect. Account callbacks retain only whitelisted Arcana market/language return parameters.
+## Existing integrations preserved
 
-The new `arcana-service` verifies member JWTs through Supabase Auth, rejects anonymous/unverified accounts, and owns prices, card draws and result creation. The content is prepared beforehand: no runtime AI, external model key or per-reading model call.
+- Repository: `jiangminzhe9-collab/paperbagcrew-website`; pre-Arcana baseline `2ec03c9763fec1a3d18f29f391369c0d05203ccc`.
+- Existing Supabase project: `yliacgixfhjhgjemvbpg`.
+- Canonical route: `https://paperbagcrew.com/arcana/readings/`.
+- Paperbag Crew entrance: `?market=global&lang=en`; Dongze entrance: `?market=tw&lang=zh-Hant`.
+- Market and language are independent. Both entrances use the canonical domain's existing account session; there is no claimed cross-domain automatic login.
+- Existing member records, six wallpaper choices, `paperbag-payments`, wallpaper products and purchase delivery are unchanged.
 
-A free daily order reserves a database-generated seed and the server's Asia/Taipei date. A unique account/day constraint is shared by both markets. Retries use the same seed; language switches use the two saved language versions, not a new draw.
+## What the free release does
 
-Paid requests reserve immutable question/market/product/price and an idempotency key before contacting a provider. New keys allow repeat purchases. Provider captures are checked against amount, currency, merchant, local invoice, SKU and owner-bound order. A successful payment produces one immutable result snapshot; refund/reversal hides it. Duplicate callbacks, lost responses and fulfillment failures do not create another charge or another draw. Paid-but-unfinished webhook fulfillment returns 503 for provider retry. Five unfinished orders per member/environment is a safety cap, not a lifetime purchase limit. An old uncertain checkout is held for manual review rather than recreated.
+The public page contains question labels, explicit assigned examples and references to the original artwork. It does not contain the complete reading library or engine. A dedicated auth adapter avoids the homepage redirect; account return parameters are narrowly whitelisted.
 
-## Pricing and provider state — do not enable by assumption
+`arcana-service` validates the member token through Supabase Auth and requires a non-anonymous, email-verified account. The daily reservation uses a database-generated seed and the server's Asia/Taipei calendar date. A unique member/day constraint is shared across markets. Retries retrieve the same seed and result, including when the first rendering attempt failed. English and Traditional Chinese versions are saved for the same card; changing language does not consume another daily draw.
 
-- Dongze/TW: 3 cards NT$299, 5 cards NT$499. TWD provider amounts are whole units.
-- Paperbag Crew/global: currency USD; **the user's exact USD prices remain unconfirmed**. Both amounts are NULL/disabled. Test-only synthetic USD values are rolled back and are not product prices.
-- Global provider policy is PayPal. TW has no configured provider and is hard-blocked from PayPal checkout/capture/redirect, irrespective of environment flags. No NewebPay adapter, merchant activation or credential setup is represented as complete.
-- PayPal Taiwan's official guidance limits Taiwan-account sending to cross-border payments. It cannot be assumed to solve Taiwan-to-Taiwan checkout: https://www.paypal.com/tw/cshelp/article/how-do-i-send-payments-help293?locale.x=en_TW
-- Currency formats: https://developer.paypal.com/api/codes/currency/
+Content is written beforehand and generated by deterministic rules. There is no runtime AI model, external model credential or per-reading model call. Free rows use the legacy internal status name `paid` only for renderer compatibility: their SKU is constrained to `daily`, their amount is zero and the UI describes them as free saved cards, never confirmed payments.
 
-## Public versus private deployment sources
+## Database scope — exactly two new tables
 
-The GitHub repository is public. Never push these files to it:
+The active migration creates only:
 
-- `supabase/functions/arcana-service/content.mjs` — complete original card/question/detail library.
-- `supabase/functions/arcana-service/engine.mjs` — complete combination engine.
-- `supabase/functions/arcana-service/renderer.mjs` — private content adapter.
+1. `arcana_catalog`: free daily entries plus disabled paid placeholders. Paid amounts are NULL, providers are NULL, and constraints prohibit enabling them in this schema.
+2. `arcana_orders`: daily-only zero-amount, internal-environment records with owner RLS, immutable reservation/result guards and one member/day uniqueness.
 
-They are explicitly ignored by `.gitignore`; the separate public-file manifest/patch also excludes them. `.assetsignore` already excludes all `supabase/`, `tests/` and `docs/` files from static hosting.
+The only business RPCs granted to the service role are `reserve_arcana_daily` and `fulfill_arcana_order`, plus the result-validation helper. Client roles cannot invoke those RPCs, mutate records or read the draw seed. **There is no payment-event table, paid-reservation RPC, provider-binding RPC or payment-recording RPC in this release.** No existing Auth, wallpaper, commerce or Storage object is changed.
 
-A private function bundle contains these dependencies plus `index.ts`, `index.mjs` and `core.mjs`. The connected Supabase deployment tool supports inline named source files and can deploy this bundle without a public source push or new repository. Its endpoint is public, but source files are not served by that endpoint; member routes still require verified authentication. Fixed public examples are intentionally shareable.
+The private function entrypoint is explicitly free-only: `ARCANA_SERVICE_ENABLED=true`, `ARCANA_CHECKOUT_ENABLED=false`, and `ARCANA_LIVE_CHECKOUT_ENABLED=false`. Payment flags cannot be activated by a pre-existing environment setting. The daily build needs only platform-provided Supabase configuration, not new merchant credentials.
 
-## Local verification
+## Paid work is future-only, not a live capability
 
-Install exact test dependencies under the excluded tests directory: `npm ci --prefix tests`. Restore the three private ignored source files from the owner's private bundle before renderer tests. Run `npm test --prefix tests`.
+The repository retains some separately testable payment boundary code and tests for future review. Passing those mocked tests does not install their database routines or authorize a payment launch. The earlier full schema is kept in the owner's local/private future-work archive, not the active migrations or public draft. The retained `docs/arcana-schema-draft.sql` now mirrors the free-only schema.
 
-The aggregate runs backend/renderer tests, existing wallpaper commerce tests, frontend/auth DOM tests, existing wallpaper-member tests and a real PostgreSQL/WASM PGlite execution of the schema/security SQL. PGlite uses mock Supabase auth helpers and synthetic users; it is not a live project test. Tests send no emails, real payments or production writes.
+A future paid release needs a new approved migration, provider integration, exact global USD price approval, terms/privacy/retention review and sandbox end-to-end evidence. Taiwan must not be routed to PayPal as a substitute for an approved local payment provider. No NewebPay setup, secret creation, merchant activation, real charge or payment email is part of this release. Existing public support remains `dongze.ltd@gmail.com`; nothing is sent automatically.
 
-Still required before release: browser desktop/mobile checks, real Supabase Auth/API/RLS integration and two-connection concurrency/time-boundary checks, actual sandbox payment/cancellation/refund and webhook delivery, and confirmation of merchant receiving eligibility. No browser visual or real payment pass is implied by the local tests.
+## Private source packaging
 
-## Approval-dependent rollout (not executed)
+Never push these complete reading files to the public GitHub repository:
 
-1. Review current remote heads again; apply the narrow frontend/auth-entry changes without overwriting concurrent wallpaper work. Keep full content private.
-2. Approve applying `20261031154849_arcana_readings.sql` to the existing Supabase project: new Arcana tables, owner RLS, service-only RPCs and immutable result/seed guards. Run actual database security advisors and controlled integration tests afterward.
-3. Approve deploying only new `arcana-service` with the private dependency bundle. The mixed catalog/member/webhook function uses `verify_jwt=false` at the gateway because webhooks are not member JWTs; its body verifies member tokens and provider signatures. Do not weaken any existing function or policy.
-4. The staged entrypoint is an explicit free-only build: it sets `ARCANA_SERVICE_ENABLED=true` and hardcodes `ARCANA_CHECKOUT_ENABLED=false` plus `ARCANA_LIVE_CHECKOUT_ENABLED=false`, regardless of pre-existing payment flags. It needs only the platform-provided Supabase environment, no new secrets or dashboard entry. Deploying this build after approval enables actual free daily readings/history, not checkout. A later paid release requires a separately reviewed source change; environmental flags cannot silently activate payments. Existing paid completion/refund handling is not disabled merely by pausing new sales.
-5. For eventual PayPal sandbox testing, approve configuration of `ARCANA_PAYPAL_MODE`, `ARCANA_PAYPAL_CLIENT_ID`, `ARCANA_PAYPAL_CLIENT_SECRET`, `ARCANA_PAYPAL_MERCHANT_ID`, `ARCANA_PAYPAL_WEBHOOK_ID`, and `ARCANA_SANDBOX_USER_IDS`. Use existing authorized merchant credentials where appropriate; never put values in this repository, chat or screenshots. No new persistent credential is created by this code. Register the dedicated callback only after approval: `/functions/v1/arcana-service/webhook`.
-6. Confirm exact USD prices, configure the matching immutable catalog/code, and complete real sandbox tests before enabling global sales. TW remains closed until an approved local provider is implemented and tested. No silent currency conversion or automatic USD price proposal is used.
-7. Publish the reviewed public files to the existing site and the single Dongze entrance patch only with deployment approval. Review service/refund/support/privacy/retention terms before collecting paid customer questions. Support currently follows the existing public account address, `dongze.ltd@gmail.com`; no message is sent automatically.
+- `supabase/functions/arcana-service/content.mjs`
+- `supabase/functions/arcana-service/engine.mjs`
+- `supabase/functions/arcana-service/renderer.mjs`
 
-No main push, deployment, external database change, secret value access, real account creation, payment, or email was performed in this implementation batch.
+They are excluded by `.gitignore` and the explicit public manifest. A private function bundle supplies them alongside the three public handler files for function deployment. `.assetsignore` excludes `supabase/`, `docs/` and `tests/` from static hosting. Public assigned examples are intentionally shareable.
 
-## Scope and rollback
+## Verification and operational checks
 
-The migration creates only new `arcana_catalog`, `arcana_orders`, `arcana_payment_events`, their guards/RPCs/policies and indexes. It does not rewrite existing member, wallpaper, commerce, Auth or Storage data. Its DDL is transactional. Frontend changes outside the new route are only the two Paperbag entry links, whitelisted account return handling and the new function's deployment configuration.
+Install pinned test dependencies with `npm ci --prefix tests`, restore private function dependencies for renderer tests, then run `npm test --prefix tests`. The **free-schema** tests exercise the active two-table schema with disposable PostgreSQL/WASM and synthetic auth helpers. The old full paid-schema suite is explicitly future-only and requires its private fixture; do not mistake it for a live schema test. Frontend/auth tests, renderer tests and existing wallpaper commerce regressions remain separate checks.
 
-For an operational rollback, pause new Arcana service/checkouts, restore the prior reviewed frontend entry files, and retain the order database plus payment reconciliation/webhook handler for any outstanding orders. Do not drop records, disable existing wallpaper commerce, rotate/remove credentials or tell customers to pay again merely because a release is rolled back. Review and reconcile outstanding payments before retiring the handler. No automatic destructive rollback is included.
+Before claiming the free journey works end-to-end, verify the actual migration result, the deployed free-only function, unauthorized-request rejection, one verified member's daily draw/history, same-day retry and cross-market reuse. Browser desktop/mobile rendering and two-connection concurrency need their own evidence. Tool access errors are not a browser pass. Never create an account or consume a real member's daily card without authorization.
+
+For rollback, close the new Arcana service and restore reviewed entry links if needed, retaining member history. Do not drop records or modify existing wallpaper/commerce data. Paid provider shutdown/reconciliation procedures belong to a separately approved future paid release, not this free-only database.

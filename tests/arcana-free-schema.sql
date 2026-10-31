@@ -1,0 +1,33 @@
+begin;
+do $$
+declare u uuid=gen_random_uuid(); other uuid=gen_random_uuid(); a public.arcana_orders; b public.arcana_orders; denied boolean; n integer;
+r jsonb='{"cards":[{"id":74,"reversed":false}],"reading":{"direct":"test"},"reading_version":"v2"}';
+begin
+ insert into auth.users(id,email) values(u,u::text||'@example.invalid'),(other,other::text||'@example.invalid');
+ if exists(select 1 from public.arcana_catalog where sku<>'daily' and (enabled or amount_minor is not null or provider is not null)) then raise exception 'paid catalog enabled'; end if;
+ if to_regprocedure('public.reserve_arcana_order(uuid,text,text,text,jsonb,text)') is not null or to_regclass('public.arcana_payment_events') is not null then raise exception 'paid scaffolding present'; end if;
+ set local role service_role;
+ a=public.reserve_arcana_daily(u,'{"questionId":"daily","language":"en"}','global');
+ b=public.reserve_arcana_daily(u,'{"changed":true}','tw');
+ if a.id<>b.id or a.draw_seed<>b.draw_seed or a.question<>b.question then raise exception 'daily reroll'; end if;
+ denied=false; begin update public.arcana_orders set sku='arcana_3' where id=a.id; exception when others then denied=true; end;
+ if not denied then raise exception 'paid sku allowed'; end if;
+ denied=false; begin perform public.fulfill_arcana_order(a.id,null); exception when raise_exception then denied=true; end;
+ if not denied then raise exception 'null result allowed'; end if;
+ a=public.fulfill_arcana_order(a.id,r);
+ b=public.fulfill_arcana_order(a.id,jsonb_set(r,'{reading,direct}','"reroll"'));
+ if b.result<>r then raise exception 'result overwritten'; end if;
+ perform set_config('request.jwt.claims',json_build_object('sub',u,'role','authenticated','is_anonymous',false)::text,true);
+ set local role authenticated;
+ select count(*) into n from public.arcana_orders where id=a.id;
+ if n<>1 then raise exception 'owner read failed'; end if;
+ denied=false; begin perform public.reserve_arcana_daily(u,'{}'); exception when insufficient_privilege then denied=true; end;
+ if not denied then raise exception 'client RPC allowed'; end if;
+ denied=false; begin update public.arcana_orders set result='{}' where id=a.id; exception when insufficient_privilege then denied=true; end;
+ if not denied then raise exception 'client writes allowed'; end if;
+ perform set_config('request.jwt.claims',json_build_object('sub',other,'role','authenticated','is_anonymous',false)::text,true);
+ select count(*) into n from public.arcana_orders where id=a.id;
+ if n<>0 then raise exception 'outsider read'; end if;
+ reset role;
+end $$;
+rollback;
