@@ -18,6 +18,7 @@
   const client = window.supabase.createClient('https://yliacgixfhjhgjemvbpg.supabase.co', 'sb_publishable_MTi1uzs0XQMy9R6CfAYVHQ_5TDgjltp', {
     auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true, flowType: 'implicit' }
   });
+  window.paperbagMemberClient = client;
   if (!accountPage) {
     client.auth.getSession().then(({data, error}) => {
       if (!error && data.session) {
@@ -153,6 +154,7 @@
     $('profile').hidden = !session || recovering;
     $('recovery').hidden = !session || !recovering;
     if (session) {
+      if (!recovering && query.get('next') === 'city-sessions') { location.replace('/shop/city-sessions-vol-01/checkout/'); return; }
       const name = session.user.user_metadata?.display_name || '';
       $('welcome').textContent = name ? 'Welcome, ' + name + '.' : 'Welcome back.';
       $('profile-name').value = name;

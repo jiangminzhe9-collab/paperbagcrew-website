@@ -16,3 +16,11 @@ Release order
 5. Disable the temporary importer and remove its temporary credential.
 
 Originals and privileged credentials must never be committed to this repository.
+
+Paid collection checks
+  node --test tests/paid-checkout.test.mjs
+  node tests/paid-store.cjs
+
+Run tests/paid-checkout.sql as administrator against the prepared schema. It rolls
+back all fixtures. The HTTP tests use mock PayPal responses; they do not make
+charges or replace the sandbox end-to-end checks in docs/paypal-launch.md.

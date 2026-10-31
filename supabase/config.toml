@@ -1,0 +1,4 @@
+[functions.paperbag-payments]
+entrypoint = "./functions/paperbag-payments/index.ts"
+# The handler validates member JWTs against Auth and verifies PayPal webhook signatures.
+verify_jwt = false
