@@ -2,3 +2,10 @@
 entrypoint = "./functions/paperbag-payments/index.ts"
 # The handler validates member JWTs against Auth and verifies PayPal webhook signatures.
 verify_jwt = false
+
+# LOCAL deployment specification only. Deploy only after explicit approval.
+# This mixed catalog/member/webhook handler independently verifies member JWTs
+# against Supabase Auth and authenticates PayPal webhooks server-side.
+[functions.arcana-service]
+entrypoint = "./functions/arcana-service/index.ts"
+verify_jwt = false

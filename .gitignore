@@ -1,0 +1,7 @@
+# Full original reading content is deployed privately, never pushed to public GitHub.
+/supabase/functions/arcana-service/content.mjs
+/supabase/functions/arcana-service/engine.mjs
+/supabase/functions/arcana-service/renderer.mjs
+/tests/node_modules/
+/supabase/.temp/
+.env*

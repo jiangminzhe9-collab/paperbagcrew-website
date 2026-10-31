@@ -1,0 +1,12 @@
+{
+  "name": "paperbagcrew-arcana-local-tests",
+  "private": true,
+  "scripts": {
+    "test": "node --test arcana-service.test.mjs arcana-renderer.test.mjs paid-checkout.test.mjs && node arcana-frontend.cjs && node arcana-member.cjs && node arcana-account-return.cjs && node arcana-entry.cjs && node member-choices.cjs && node paid-store.cjs && node arcana-schema-runtime.mjs"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.14",
+    "jsdom": "26.1.0",
+    "supabase": "2.122.0"
+  }
+}

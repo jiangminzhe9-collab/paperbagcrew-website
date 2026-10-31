@@ -2,7 +2,12 @@
   'use strict';
   const $ = id => document.getElementById(id);
   const accountPage = Boolean($('auth-form'));
-  const callback = 'https://paperbagcrew.com/account/';
+  const arcanaQuery = new URLSearchParams(location.search);
+  const arcanaReturn = arcanaQuery.get('next') === 'arcana';
+  const arcanaLanguage = arcanaQuery.get('lang') === 'en' ? 'en' : 'zh-Hant';
+  const arcanaMarket = arcanaQuery.get('market') === 'tw' ? 'tw' : 'global';
+  const arcanaSuffix = '?market=' + arcanaMarket + '&lang=' + arcanaLanguage;
+  const callback = 'https://paperbagcrew.com/account/' + (arcanaReturn ? '?next=arcana&market=' + arcanaMarket + '&lang=' + arcanaLanguage : '');
   const hash = new URLSearchParams(location.hash.slice(1));
   const query = new URLSearchParams(location.search);
   // Forward callbacks before an SDK consumes the fragment on the homepage.
@@ -154,6 +159,7 @@
     $('profile').hidden = !session || recovering;
     $('recovery').hidden = !session || !recovering;
     if (session) {
+      if (!recovering && arcanaReturn) { location.replace('/arcana/readings/' + arcanaSuffix); return; }
       if (!recovering && query.get('next') === 'city-sessions') { location.replace('/shop/city-sessions-vol-01/checkout/'); return; }
       const name = session.user.user_metadata?.display_name || '';
       $('welcome').textContent = name ? 'Welcome, ' + name + '.' : 'Welcome back.';
@@ -236,7 +242,7 @@
       const data = check(await client.auth.getSession()); showSession(data.session);
       if (hash.has('error_description')) message(hash.get('error_description') + ' Request a new email below.', true);
       else message();
-      history.replaceState(null, '', '/account/' + (query.has('artwork') ? '?artwork=' + encodeURIComponent(query.get('artwork')) : '') + (location.hash === '#wallpapers' ? '#wallpapers' : ''));
+      history.replaceState(null, '', '/account/' + (arcanaReturn ? '?next=arcana&market=' + arcanaMarket + '&lang=' + arcanaLanguage : '') + (!arcanaReturn && query.has('artwork') ? '?artwork=' + encodeURIComponent(query.get('artwork')) : '') + (location.hash === '#wallpapers' ? '#wallpapers' : ''));
     } catch (error) { $('auth').hidden = false; message(error.message, true); }
   })();
 })();
