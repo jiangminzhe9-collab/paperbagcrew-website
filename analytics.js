@@ -12,8 +12,14 @@
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
   window.gtag('js', new Date());
-  // Never forward query strings, auth fragments or referring-page URLs.
-  window.gtag('config', measurementId, { site_name: siteName, content_language: language(), page_location: location.origin + location.pathname, page_referrer: '', allow_google_signals: false, allow_ad_personalization_signals: false });
+  // Keep only a validated public referring origin; never credentials, path, query or fragment.
+  let referrerOrigin = '';
+  try {
+    const referrer = new URL(document.referrer);
+    if (['http:', 'https:'].includes(referrer.protocol) && !referrer.username && !referrer.password) referrerOrigin = referrer.origin;
+  } catch (_) {}
+  // Never forward query strings or auth fragments.
+  window.gtag('config', measurementId, { site_name: siteName, content_language: language(), page_location: location.origin + location.pathname, page_referrer: referrerOrigin, allow_google_signals: false, allow_ad_personalization_signals: false });
   const tag = document.createElement('script');
   tag.async = true;
   tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + measurementId;
