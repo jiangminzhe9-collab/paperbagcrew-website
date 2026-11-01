@@ -19,9 +19,25 @@
     if (!$('status')) return;
     $('status').textContent = value;
     $('status').dataset.error = String(error);
+    const feedback = $('auth-feedback');
+    if (feedback) { feedback.textContent = value; feedback.dataset.error = String(error); feedback.hidden = !value; }
   };
   if (!window.supabase) { message('Account services could not load. Please refresh the page or check your connection.', true); return; }
+  // Bound network waits without retrying account creation or changing Auth settings.
+  const accountFetch = async (input, init = {}) => {
+    const controller = new AbortController();
+    const abort = () => controller.abort();
+    if (init.signal?.aborted) abort();
+    else init.signal?.addEventListener('abort', abort, {once: true});
+    const timer = setTimeout(abort, 20000);
+    try { return await fetch(input, {...init, signal: controller.signal}); }
+    catch (error) {
+      if (controller.signal.aborted) throw new Error(arcanaReturn && arcanaLanguage === 'zh-Hant' ? '連線逾時，尚未確認請求結果。請先檢查信箱與網路，再重新整理；請勿連續重複提交。' : 'Connection timed out; the request is not confirmed. Check your inbox and connection, then refresh. Please do not submit repeatedly.');
+      throw error;
+    } finally { clearTimeout(timer); init.signal?.removeEventListener('abort', abort); }
+  };
   const client = window.supabase.createClient('https://yliacgixfhjhgjemvbpg.supabase.co', 'sb_publishable_MTi1uzs0XQMy9R6CfAYVHQ_5TDgjltp', {
+    global: { fetch: accountFetch },
     auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true, flowType: 'implicit' }
   });
   window.paperbagMemberClient = client;
@@ -197,6 +213,16 @@
   };
   $('signup-tab').onclick = () => mode(true);
   $('login-tab').onclick = () => mode(false);
+  // Native validation bubbles may be hidden in mobile/in-app browsers.
+  $('auth-form').addEventListener('invalid', event => {
+    const field = event.target;
+    const zh = arcanaReturn && arcanaLanguage === 'zh-Hant';
+    const error = field.id === 'password'
+      ? (field.validity.valueMissing ? (zh ? '請輸入密碼。' : 'Please enter your password.') : (zh ? '密碼至少需要 8 個字元。' : 'Use at least 8 characters for your password.'))
+      : field.id === 'name' ? (zh ? '請輸入暱稱。' : 'Please enter a nickname.')
+      : (zh ? '請輸入有效的電子郵件地址。' : 'Please enter a valid email address.');
+    message(error, true);
+  }, true);
   $('auth-form').onsubmit = event => { event.preventDefault(); run(async () => {
     const credentials = {email: email(), password: $('password').value};
     if (signup) {
