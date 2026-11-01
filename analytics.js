@@ -12,7 +12,8 @@
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
   window.gtag('js', new Date());
-  window.gtag('config', measurementId, { site_name: siteName, content_language: language() });
+  // Never forward query strings, auth fragments or referring-page URLs.
+  window.gtag('config', measurementId, { site_name: siteName, content_language: language(), page_location: location.origin + location.pathname, page_referrer: '', allow_google_signals: false, allow_ad_personalization_signals: false });
   const tag = document.createElement('script');
   tag.async = true;
   tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + measurementId;
@@ -23,9 +24,14 @@
     const target = new URL(link.href, location.href);
     let eventName;
     const detail = { site_name: siteName, content_language: document.documentElement.lang || language(), transport_type: 'beacon' };
-    if (target.hostname === 'line.me' && target.pathname.startsWith('/S/sticker/')) {
+    const stickerMatch = target.hostname === 'line.me'
+      ? target.pathname.match(/^\/S\/sticker\/(\d+)\/?$/)
+      : target.hostname === 'store.line.me'
+        ? target.pathname.match(/^\/stickershop\/product\/(\d+)(?:\/[A-Za-z-]+)?\/?$/)
+        : null;
+    if (stickerMatch) {
       eventName = 'sticker_store_click';
-      detail.sticker_id = target.pathname.split('/').filter(Boolean).pop();
+      detail.sticker_id = stickerMatch[1];
     } else if (target.hostname === 'paypal.com' || target.hostname.endsWith('.paypal.com')) {
       eventName = 'support_click';
     } else if (target.hostname === 'dongze.win' && target.hash === '#line-stickers') {
