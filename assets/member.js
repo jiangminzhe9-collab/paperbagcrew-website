@@ -4,6 +4,7 @@
   const accountPage = Boolean($('auth-form'));
   const arcanaQuery = new URLSearchParams(location.search);
   const arcanaReturn = arcanaQuery.get('next') === 'arcana';
+  const arcanaProfileEdit = arcanaReturn && arcanaQuery.get('edit') === 'profile';
   const arcanaLanguage = arcanaQuery.get('lang') === 'en' ? 'en' : 'zh-Hant';
   const arcanaMarket = arcanaQuery.get('market') === 'tw' ? 'tw' : 'global';
   const arcanaSuffix = '?market=' + arcanaMarket + '&lang=' + arcanaLanguage;
@@ -159,7 +160,7 @@
     $('profile').hidden = !session || recovering;
     $('recovery').hidden = !session || !recovering;
     if (session) {
-      if (!recovering && arcanaReturn) { location.replace('/arcana/readings/' + arcanaSuffix); return; }
+      if (!recovering && arcanaReturn && !arcanaProfileEdit) { location.replace('/arcana/readings/' + arcanaSuffix); return; }
       if (!recovering && query.get('next') === 'city-sessions') { location.replace('/shop/city-sessions-vol-01/checkout/'); return; }
       const name = session.user.user_metadata?.display_name || '';
       $('welcome').textContent = name ? 'Welcome, ' + name + '.' : 'Welcome back.';
@@ -227,6 +228,7 @@
     const name = $('profile-name').value.trim();
     if (!name) throw new Error('Please enter a nickname.');
     check(await client.auth.updateUser({data: {display_name: name}}));
+    if (arcanaProfileEdit && !recovering) { location.replace('/arcana/readings/' + arcanaSuffix); return; }
     $('welcome').textContent = 'Welcome, ' + name + '.'; message('Profile saved.');
   }); };
   $('signout').onclick = () => run(async () => { check(await client.auth.signOut({scope: 'local'})); showSession(null); message('You are signed out on this device.'); });
@@ -242,7 +244,7 @@
       const data = check(await client.auth.getSession()); showSession(data.session);
       if (hash.has('error_description')) message(hash.get('error_description') + ' Request a new email below.', true);
       else message();
-      history.replaceState(null, '', '/account/' + (arcanaReturn ? '?next=arcana&market=' + arcanaMarket + '&lang=' + arcanaLanguage : '') + (!arcanaReturn && query.has('artwork') ? '?artwork=' + encodeURIComponent(query.get('artwork')) : '') + (location.hash === '#wallpapers' ? '#wallpapers' : ''));
+      history.replaceState(null, '', '/account/' + (arcanaReturn ? '?next=arcana' + (arcanaProfileEdit ? '&edit=profile' : '') + '&market=' + arcanaMarket + '&lang=' + arcanaLanguage : '') + (!arcanaReturn && query.has('artwork') ? '?artwork=' + encodeURIComponent(query.get('artwork')) : '') + (location.hash === '#wallpapers' ? '#wallpapers' : ''));
     } catch (error) { $('auth').hidden = false; message(error.message, true); }
   })();
 })();
