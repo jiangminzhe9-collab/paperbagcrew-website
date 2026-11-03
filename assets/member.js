@@ -110,11 +110,20 @@
       if (version === galleryVersion) galleryStatus(error.message || 'Please refresh wallpapers and try again.');
     } finally { choosing = false; if(version === galleryVersion) renderWallpapers(); }
   };
+  // Normalize the former umbrella collection while catalog metadata rolls out.
+  const storyRanges = [[9,14,'Street Players'],[15,21,'City After Dark'],[22,28,'Everyday Craftspeople'],[29,29,'Street Players'],[30,39,'Office Workers'],[40,49,'Office Heroes'],[50,56,'Taike Series'],[57,64,'Paperbag Cats'],[65,71,'Curious Residents'],[72,77,'Baseball Crew'],[78,82,'Basketball Starting Five']];
+  const isCharacterStory = item => /^\/wallpapers\/assets\/street-story-\d{3}-/.test(item.preview_url || '');
+  const wallpaperCollection = item => {
+    if (item.collection !== 'Street Stories') return item.collection;
+    const match = (item.preview_url || '').match(/street-story-(\d{3})-/);
+    const number = match ? Number(match[1]) : NaN;
+    return storyRanges.find(([first,last]) => number >= first && number <= last)?.[2] || item.collection;
+  };
   const renderWallpapers = () => {
     if (!galleryUser) return;
     $('wallpaper-quota').textContent = choices.length + ' of 6 chosen · ' + Math.max(0,6-choices.length) + ' choices remaining';
     const group = $('wallpaper-collection').value, view = $('wallpaper-view').value, term = $('wallpaper-search').value.trim().toLowerCase();
-    const items = catalog.filter(item => (group === 'all' || item.collection === group) && (view !== 'chosen' || selected(item.id)) && item.title.toLowerCase().includes(term));
+    const items = catalog.filter(item => (group === 'all' || wallpaperCollection(item) === group || (group === 'Street Stories' && isCharacterStory(item))) && (view !== 'chosen' || selected(item.id)) && item.title.toLowerCase().includes(term));
     $('wallpaper-grid').replaceChildren();
     for (const item of items) {
       const chosen = selected(item.id);
@@ -122,7 +131,7 @@
       const img = document.createElement('img'); img.alt = item.title + ' — reduced preview'; img.loading = 'lazy'; img.decoding = 'async';
       if (/^\/wallpapers\/assets\/[a-z0-9-]+\.webp$/.test(item.preview_url || '')) img.src = item.preview_url;
       const title = document.createElement('h3'); title.textContent = item.title;
-      const caption = document.createElement('p'); caption.className = 'muted'; caption.textContent = item.collection + (chosen ? ' · Selected ✓' : ' · Uses 1 choice');
+      const caption = document.createElement('p'); caption.className = 'muted'; caption.textContent = wallpaperCollection(item) + (chosen ? ' · Selected ✓' : ' · Uses 1 choice');
       const actions = document.createElement('div'); actions.className = 'wallpaper-actions';
       for (const [label,download] of (chosen ? [['Open full-size',false],['Download PNG',true]] : [[choices.length >= 6 ? 'All 6 choices used' : 'Choose this wallpaper',false]])) {
         const button = document.createElement('button'); button.type = 'button'; button.textContent = label;
@@ -167,6 +176,7 @@
     if(error) { galleryStatus('Please refresh the page and sign in again.'); return; }
     galleryUser=null;syncWallpapers(data.session);
   };
+  if ($('wallpaper-reset')) $('wallpaper-reset').onclick = () => { $('wallpaper-collection').value='all'; $('wallpaper-view').value='all'; $('wallpaper-search').value=''; renderWallpapers(); };
   ['wallpaper-collection','wallpaper-view'].forEach(id => $(id).addEventListener('change',renderWallpapers));
   $('wallpaper-search').addEventListener('input',renderWallpapers);
 
@@ -274,3 +284,4 @@
     } catch (error) { $('auth').hidden = false; message(error.message, true); }
   })();
 })();
+

@@ -6,10 +6,11 @@
  const visible=()=>cards.filter(c=>!c.hidden);
  function filter(){
   const q=search.value.trim().toLowerCase();
-  cards.forEach(c=>{c.hidden=!((theme.value==='all'||c.dataset.group===theme.value)&&(access.value==='all'||c.dataset.status===access.value)&&c.dataset.title.includes(q));});
+  cards.forEach(c=>{c.hidden=!((theme.value==='all'||c.dataset.group===theme.value||(theme.value==='Street Stories'&&c.dataset.archive==='Street Stories'))&&(access.value==='all'||c.dataset.status===access.value)&&c.dataset.title.includes(q));});
   const n=visible().length;document.getElementById('count').textContent=n+' artwork'+(n===1?'':'s');document.getElementById('empty').hidden=n!==0;
  }
  [theme,access].forEach(el=>el.addEventListener('change',filter));search.addEventListener('input',filter);
+ document.getElementById('reset-filters')?.addEventListener('click',()=>{theme.value='all';access.value='all';search.value='';const url=new URL(location.href);url.searchParams.delete('collection');history.replaceState(null,'',url.pathname+url.search+url.hash);filter();});
  function render(){
   const list=visible(), card=list[active];if(!card)return;
   const src=card.querySelector('img');document.getElementById('viewer-title').textContent=card.querySelector('h2').textContent;
@@ -31,3 +32,4 @@
  if(Array.from(theme.options).some(o=>o.value===initialCollection))theme.value=initialCollection;
  filter();
 })();
+
