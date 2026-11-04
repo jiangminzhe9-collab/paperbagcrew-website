@@ -40,42 +40,38 @@
   }
   function paidState(data) {
     if(data.orderId)orderId=data.orderId;
-    $('buy-button').hidden=!['creating','created'].includes(data.status);
     $('download-collection').hidden=data.status!=='paid';
     $('check-payment').hidden=['refunded','reversed','declined','voided'].includes(data.status);
-    const messages={paid:'Payment confirmed. Your complete collection is ready to download.',pending:'PayPal is still processing your payment. You can return to My purchases later; do not pay again.',created:'Payment has not been confirmed. Use Check payment to refresh your order.',creating:'Your checkout is being prepared.',refunded:'This payment was refunded. Download access for this order is closed.',reversed:'This payment was reversed. Contact support if you need help.',declined:'This payment was declined. No download has been unlocked.',voided:'This checkout has expired. Return to the collection to start again.'};
+    const messages={paid:'Payment confirmed. Your complete collection is ready to download.',pending:'Your payment is still being reviewed. You can return to My purchases later; do not pay again.',created:'Payment has not been confirmed. Use Check payment to refresh your order.',creating:'Your checkout is being prepared.',refunded:'This payment was refunded. Download access for this order is closed.',reversed:'This payment was reversed. Contact support if you need help.',declined:'This payment was declined. No download has been unlocked.',voided:'This checkout has expired. Return to the collection to start again.'};
     say((data.sandbox?'TEST MODE · ':'')+(messages[data.status]||'Payment is being verified. Please check again later.'));
     if(data.status==='paid')$('check-payment').hidden=true;
   }
-  async function checkPayment(capture) {
+  async function checkPayment() {
     if(!orderId||busy)return;
     busy=true;$('check-payment').disabled=true;
-    say('Checking your payment with PayPal…');
+    say('Checking your existing order…');
     const current=version;
-    try{const data=await api(capture?'capture':'status',{orderId});if(current===version)paidState(data);}
+    try{const data=await api('status',{orderId});if(current===version)paidState(data);}
     catch(error){if(current===version){say(error.message,true);$('check-payment').hidden=false;}}
     finally{busy=false;$('check-payment').disabled=false;}
   }
   async function render(next) {
     session=next;const current=++version;
     if(checkout) {
-      $('buy-button').hidden=true;$('download-collection').hidden=true;$('check-payment').hidden=true;
+      $('download-collection').hidden=true;$('check-payment').hidden=true;
       $('signin-needed').hidden=!!session;
       if(!session){say(orderId?'Sign in to the account used for this purchase to confirm payment.':'Sign in to save purchases and download them again.');return;}
-      if(orderId){await checkPayment(!cancelled);return;}
+      if(orderId){await checkPayment();return;}
       try {
         const {data,error}=await client.from('commerce_orders').select('paypal_order_id,status,environment').eq('sku',sku).in('status',['paid','pending','created','creating']).order('created_at',{ascending:false});
         if(error)throw new Error('Your purchases could not load. Please refresh.');
         if(current!==version)return;
-        const config=await api('catalog');
+        const config={sandbox:false,available:false};
         if(current!==version)return;
         const existing=(data||[]).find(x=>x.environment==='live'||(config.sandbox&&config.available));
         if(existing?.status==='paid'){paidState({status:'paid',orderId:existing.paypal_order_id,sandbox:existing.environment==='sandbox'});return;}
         if(existing?.paypal_order_id){orderId=existing.paypal_order_id;$('check-payment').hidden=false;}
-        $('buy-button').hidden=!config.available;
-        $('buy-button').textContent=config.sandbox?'Test PayPal checkout':'Continue to PayPal · US$4.99';
-        say(config.available?(config.sandbox?'Sandbox test: no real payment.':'One-time purchase · US$4.99. Review the terms below before continuing.'):'Checkout is being prepared. Purchases are not open yet.');
-        if(cancelled)say('You left PayPal checkout. No download is unlocked until payment is confirmed.');
+        say('Online payment is unavailable. Existing paid downloads remain accessible. Contact dongze.ltd@gmail.com for order help.');
       }catch(error){if(current===version)say(error.message,true);}
     }else{
       $('purchases').hidden=!session;
@@ -96,7 +92,7 @@
         if(order.status==='paid'){
           const button=document.createElement('button');button.type='button';button.textContent='Download complete ZIP';button.onclick=()=>download(button);card.append(button);
         }else if(['creating','created','pending'].includes(order.status)){
-          const link=document.createElement('a');link.className='button';link.href='/shop/city-sessions-vol-01/checkout/'+(order.paypal_order_id?'?token='+encodeURIComponent(order.paypal_order_id):'');link.textContent='Check / resume purchase';card.append(link);
+          const link=document.createElement('a');link.className='button';link.href='/shop/city-sessions-vol-01/checkout/'+(order.paypal_order_id?'?token='+encodeURIComponent(order.paypal_order_id):'');link.textContent='View order status';card.append(link);
         }
         const ref=document.createElement('p');ref.className='muted';ref.textContent='Order reference: '+order.id;card.append(ref);
         $('purchases-list').append(card);
@@ -104,20 +100,7 @@
     }
   }
   if(checkout){
-    $('buy-button').onclick=async()=>{
-      if(busy)return;
-      if(!$('accept-terms').checked){say('Please read and accept the personal-use terms.',true);$('accept-terms').focus();return;}
-      busy=true;$('buy-button').disabled=true;say('Preparing your secure PayPal checkout…');
-      const current=version;
-      try{
-        const data=await api('create',{sku,termsVersion:'2026-10-31'});
-        if(current!==version)return;
-        if(data.approvalUrl){const url=new URL(data.approvalUrl);if(url.protocol!=='https:'||!['www.paypal.com','www.sandbox.paypal.com'].includes(url.hostname)||url.port)throw new Error('Invalid PayPal checkout link.');location.assign(url.href);}
-        else paidState(data);
-      }catch(error){if(current===version)say(error.message,true);}
-      finally{busy=false;$('buy-button').disabled=false;}
-    };
-    $('check-payment').onclick=()=>checkPayment(true);
+    $('check-payment').onclick=()=>checkPayment();
     $('download-collection').onclick=()=>download($('download-collection'));
   }else $('purchases-refresh').onclick=()=>render(session);
   let lastToken;
@@ -128,3 +111,4 @@
   });
   client.auth.getSession().then(({data,error})=>{if(error)say('Please sign in again.',true);else if(lastToken===undefined){lastToken=data.session?.access_token;render(data.session);}});
 })();
+
