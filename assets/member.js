@@ -87,6 +87,9 @@
   };
   const openWallpaper = async (item, download) => {
     if (!galleryUser || choosing) return;
+    if (retiredFromBrowse(item) && !selected(item.id)) {
+      galleryStatus('This artwork is no longer offered. Your previously selected artworks remain in My selections.'); return;
+    }
     const version = galleryVersion, user = galleryUser;
     if (!selected(item.id)) {
       if (choices.length >= 6) { galleryStatus('All 6 choices used. Open My selections to download your chosen wallpapers.'); return; }
@@ -119,11 +122,14 @@
     const number = match ? Number(match[1]) : NaN;
     return storyRanges.find(([first,last]) => number >= first && number <= last)?.[2] || item.collection;
   };
+  // Retire only the storefront offering. Keep catalog rows and existing choices
+  // intact so owners can still open and download them from My selections.
+  const retiredFromBrowse = item => wallpaperCollection(item) === 'Paperbag Cats';
   const renderWallpapers = () => {
     if (!galleryUser) return;
     $('wallpaper-quota').textContent = choices.length + ' of 6 chosen · ' + Math.max(0,6-choices.length) + ' choices remaining';
     const group = $('wallpaper-collection').value, view = $('wallpaper-view').value, term = $('wallpaper-search').value.trim().toLowerCase();
-    const items = catalog.filter(item => (group === 'all' || wallpaperCollection(item) === group || (group === 'Street Stories' && isCharacterStory(item))) && (view !== 'chosen' || selected(item.id)) && item.title.toLowerCase().includes(term));
+    const items = catalog.filter(item => (!retiredFromBrowse(item) || (view === 'chosen' && selected(item.id))) && (group === 'all' || wallpaperCollection(item) === group || (group === 'Street Stories' && isCharacterStory(item))) && (view !== 'chosen' || selected(item.id)) && item.title.toLowerCase().includes(term));
     $('wallpaper-grid').replaceChildren();
     for (const item of items) {
       const chosen = selected(item.id);
@@ -153,7 +159,7 @@
       if (result.error) throw result.error;
       if (version !== galleryVersion || !galleryUser) return;
       catalog = (result.data || []).sort((a,b) => Number(b.collection === 'Winter Collection') - Number(a.collection === 'Winter Collection') || a.gallery_id-b.gallery_id);
-      choices = current; renderWallpapers(); galleryStatus(catalog.length + ' artworks to explore. Choose any 6 once; download your selections again anytime.');
+      choices = current; renderWallpapers(); galleryStatus(catalog.filter(item => !retiredFromBrowse(item)).length + ' artworks to explore. Choose any 6 once; download your selections again anytime.');
       const requested = query.get('artwork');
       if (requested && /^\d+$/.test(requested)) $('artwork-' + requested)?.scrollIntoView({block:'center'});
       else if (location.hash === '#wallpapers') $('wallpapers').scrollIntoView();
@@ -284,4 +290,5 @@
     } catch (error) { $('auth').hidden = false; message(error.message, true); }
   })();
 })();
+
 

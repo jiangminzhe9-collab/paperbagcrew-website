@@ -9,6 +9,7 @@ const gallery = JSON.parse(read('wallpapers/gallery.json'));
 const html = read('wallpapers/index.html'), account = read('account/index.html');
 const css = read('wallpapers/gallery.css'), js = read('wallpapers/gallery.js');
 const expected = {'Office Heroes':10,'Office Workers':10,'Everyday Craftspeople':7,'Paperbag Cats':8,'Taike Series':7,'City After Dark':7,'Street Players':18,'Curious Residents':7,'Baseball Crew':6,'Basketball Starting Five':5,'Winter Collection':12,'City Moments':29,'Street Editions':3};
+const publicExpected=Object.fromEntries(Object.entries(expected).filter(([group])=>group!=='Paperbag Cats'));
 const attrs = s => Object.fromEntries([...s.matchAll(/([\w-]+)="([^"]*)"/g)].map(m=>[m[1],m[2]]));
 const decode = s => s.replaceAll('&amp;','&').replaceAll('&quot;','"').replaceAll('&#x27;',"'").replaceAll('&lt;','<').replaceAll('&gt;','>');
 const optionValues = (markup, id) => [...markup.match(new RegExp('<select id="'+id+'">([\\s\\S]*?)<\\/select>'))[1].matchAll(/<option(?: value="([^"]+)")?>([^<]+)<\/option>/g)].map(m=>decode(m[1]||m[2]));
@@ -16,9 +17,9 @@ assert.equal(gallery.length,129);assert.equal(new Set(gallery.map(x=>x.id)).size
 const counts=gallery.reduce((r,x)=>(r[x.group]=(r[x.group]||0)+1,r),{});assert.deepEqual(counts,expected);
 assert.equal(gallery.filter(x=>x.archive==='Street Stories').length,74);
 assert.deepEqual(optionValues(html,'theme'),optionValues(account,'wallpaper-collection'));
-for (const group of Object.keys(expected)) assert(optionValues(html,'theme').includes(group),group);
+for (const group of Object.keys(publicExpected)) assert(optionValues(html,'theme').includes(group),group);
 assert(optionValues(html,'theme').includes('Street Stories'));
-const rawCards=[...html.matchAll(/<article class="card"[^>]*>[\s\S]*?<\/article>/g)].map(m=>m[0]);assert.equal(rawCards.length,129);
+const rawCards=[...html.matchAll(/<article class="card"[^>]*>[\s\S]*?<\/article>/g)].map(m=>m[0]);assert.equal(rawCards.length,121);
 for (const card of rawCards){
  const data=attrs(card.split('>')[0]), image=attrs(card.match(/<img [^>]+>/)[0]);const item=gallery.find(x=>x.src===image.src);assert(item);
  assert.equal(data['data-group'],item.group);assert.equal(data['data-orientation'],item.orientation);assert.equal(Number(image.width),item.width);assert.equal(Number(image.height),item.height);
@@ -36,17 +37,18 @@ function harness(search=''){
  const context={document:{querySelectorAll:()=>cards,getElementById:id=>ids[id],body:{classList:{add:x=>bodyClasses.add(x),remove:x=>bodyClasses.delete(x)}}},location:{search,href:'https://paperbagcrew.com/wallpapers/'+search},history:{replaceState(a,b,url){replaced=url}},URL,URLSearchParams,window:{open(){throw Error('Unexpected fallback')}}};vm.runInNewContext(js,context);
  return{ids,cards,bodyClasses,visible:()=>cards.filter(c=>!c.hidden),replaced:()=>replaced};
 }
-let h=harness();assert.equal(h.visible().length,129);
-for(const [group,count] of Object.entries(expected)){h.ids.theme.value=group;h.ids.theme.events.change();assert.equal(h.visible().length,count,group)}
-h=harness('?collection=Winter%20Collection');assert.equal(h.visible().length,12);h.ids.search.value='Blue Air';h.ids.search.events.input();assert.equal(h.visible().length,1);h.ids['reset-filters'].events.click();assert.equal(h.visible().length,129);assert.equal(h.replaced(),'/wallpapers/');
-h=harness('?collection=Street%20Stories');assert.equal(h.visible().length,74);h.ids['reset-filters'].events.click();assert.equal(h.visible().length,129);
+let h=harness();assert.equal(h.visible().length,121);
+for(const [group,count] of Object.entries(publicExpected)){h.ids.theme.value=group;h.ids.theme.events.change();assert.equal(h.visible().length,count,group)}
+h=harness('?collection=Winter%20Collection');assert.equal(h.visible().length,12);h.ids.search.value='Blue Air';h.ids.search.events.input();assert.equal(h.visible().length,1);h.ids['reset-filters'].events.click();assert.equal(h.visible().length,121);assert.equal(h.replaced(),'/wallpapers/');
+h=harness('?collection=Street%20Stories');assert.equal(h.visible().length,66);h.ids['reset-filters'].events.click();assert.equal(h.visible().length,121);
 h.ids.search.value='no-such-title';h.ids.search.events.input();assert.equal(h.visible().length,0);assert.equal(h.ids.empty.hidden,false);h.ids['reset-filters'].events.click();
-for(let i=0;i<2;i++){const first=h.visible()[0];first.art.events.click({currentTarget:first.art});assert.equal(h.ids.viewer.open,true);assert(h.bodyClasses.has('modal-open'));h.ids.next.events.click();assert.equal(h.ids.position.textContent,'2 / 129');h.ids.close.events.click();assert.equal(h.ids.viewer.open,false);assert(!h.bodyClasses.has('modal-open'));assert(first.art.focused)}
+for(let i=0;i<2;i++){const first=h.visible()[0];first.art.events.click({currentTarget:first.art});assert.equal(h.ids.viewer.open,true);assert(h.bodyClasses.has('modal-open'));h.ids.next.events.click();assert.equal(h.ids.position.textContent,'2 / 121');h.ids.close.events.click();assert.equal(h.ids.viewer.open,false);assert(!h.bodyClasses.has('modal-open'));assert(first.art.focused)}
 // Account classification works with pre-migration and post-migration catalog rows.
 const member=read('assets/member.js');const helper=member.slice(member.indexOf('  const storyRanges ='),member.indexOf('  const renderWallpapers ='));
-const c={};vm.runInNewContext(helper+'\nthis.collectionOf=wallpaperCollection;this.isStory=isCharacterStory;',c);
+const c={};vm.runInNewContext(helper+'\nthis.collectionOf=wallpaperCollection;this.isStory=isCharacterStory;this.retired=retiredFromBrowse;',c);
 for (const item of gallery){const row={collection:item.archive||item.group,preview_url:item.src};assert.equal(c.collectionOf(row),item.group);assert.equal(c.isStory(row),item.archive==='Street Stories');assert.equal(c.collectionOf({...row,collection:item.group}),item.group)}
 const filter=member.match(/const items = catalog\.filter\(item => ([^\n]+)\);/)[1];
-const catalog=gallery.map(x=>({id:String(x.id),title:x.title,preview_url:x.src,collection:x.archive||x.group}));const state={...c,catalog,group:'all',view:'all',term:'',selected:()=>false,wallpaperCollection:c.collectionOf,isCharacterStory:c.isStory};
-const run=()=>vm.runInNewContext('catalog.filter(item => '+filter+').length',state);assert.equal(run(),129);state.group='Street Stories';assert.equal(run(),74);state.group='Paperbag Cats';assert.equal(run(),8);state.group='Winter Collection';assert.equal(run(),12);state.term='blue air';assert.equal(run(),1);state.group='all';state.term='';assert.equal(run(),129);
-console.log('PASS: 129 artworks, 13 collections, 74-item legacy alias, reset/search/dialog repetition, account classification before/after migration, natural image ratios.');
+const catalog=gallery.map(x=>({id:String(x.id),title:x.title,preview_url:x.src,collection:x.archive||x.group}));const state={...c,catalog,group:'all',view:'all',term:'',selected:()=>false,wallpaperCollection:c.collectionOf,isCharacterStory:c.isStory,retiredFromBrowse:c.retired};
+const run=()=>vm.runInNewContext('catalog.filter(item => '+filter+').length',state);assert.equal(run(),121);state.group='Street Stories';assert.equal(run(),66);state.group='Paperbag Cats';assert.equal(run(),0);state.group='Winter Collection';assert.equal(run(),12);state.term='blue air';assert.equal(run(),1);state.group='all';state.term='';assert.equal(run(),121);
+console.log('PASS: 129 records preserved, 121 public artworks, 12 visible collections, 66-item visible legacy alias, reset/search/dialog repetition, account classification before/after migration, natural image ratios.');
+

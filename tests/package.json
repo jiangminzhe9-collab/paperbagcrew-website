@@ -2,7 +2,7 @@
   "name": "paperbagcrew-arcana-local-tests",
   "private": true,
   "scripts": {
-    "test": "node --test arcana-service.test.mjs arcana-renderer.test.mjs paid-checkout.test.mjs && node arcana-frontend.cjs && node arcana-member.cjs && node arcana-account-return.cjs && node arcana-entry.cjs && node member-choices.cjs && node paid-store.cjs && node arcana-free-schema-runtime.mjs && node arcana-free-integration.mjs"
+    "test": "node --test arcana-service.test.mjs arcana-renderer.test.mjs paid-checkout.test.mjs && node arcana-frontend.cjs && node arcana-member.cjs && node arcana-account-return.cjs && node arcana-entry.cjs && node member-choices.cjs && node wallpaper-gallery.cjs && node retired-collection.cjs && node paid-store.cjs && node arcana-free-schema-runtime.mjs && node arcana-free-integration.mjs"
   },
   "devDependencies": {
     "@electric-sql/pglite": "0.5.14",
@@ -10,3 +10,4 @@
     "supabase": "2.122.0"
   }
 }
+
