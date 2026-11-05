@@ -1,10 +1,66 @@
+// Browser-local owner/QA exclusion. Never identifies a visitor from an IP address.
+(() => {
+  'use strict';
+  const key = 'dz_analytics_excluded';
+  const measurementId = 'G-7XNY9JBP6C';
+  const params = new URLSearchParams(location.search);
+  const host = location.hostname;
+  const domain = ['dongze.win', 'paperbagcrew.com', 'minzeh.com'].find(d => host === d || host === 'www.' + d);
+  const cookieScope = '; Path=/; SameSite=Lax' + (location.protocol === 'https:' ? '; Secure' : '') + (domain ? '; Domain=' + domain : '');
+  function read() {
+    let local = false, cookie = false;
+    try { local = localStorage.getItem(key) === '1'; } catch (_) {}
+    try { cookie = document.cookie.split(';').some(p => p.trim() === key + '=1'); } catch (_) {}
+    return local || cookie;
+  }
+  function save(value) {
+    try { if (value) localStorage.setItem(key, '1'); else localStorage.removeItem(key); } catch (_) {}
+    try {
+      document.cookie = key + (value ? '=1; Max-Age=31536000' : '=; Max-Age=0') + cookieScope;
+      // Remove any older host-only cookie when restoring measurement.
+      if (!value) document.cookie = key + '=; Max-Age=0; Path=/; SameSite=Lax';
+    } catch (_) {}
+    return read() === value;
+  }
+  let excluded = read();
+  let saved = true;
+  if (params.get('analytics') === 'off' || params.get('analytics') === 'on') {
+    excluded = params.get('analytics') === 'off';
+    saved = save(excluded);
+    // Fail closed if a stored exclusion could not be removed.
+    if (!excluded && read()) excluded = true;
+  }
+  const automatic = !!(navigator.webdriver || navigator.globalPrivacyControl || navigator.doNotTrack === '1');
+  const settingsPage = /^\/site-stats(?:\/|$|\.html)/.test(location.pathname || '');
+  const api = {
+    get excluded() { return excluded; },
+    get saved() { return saved; },
+    get automatic() { return automatic; },
+    get blocked() { return excluded || automatic || settingsPage; },
+    setExcluded(value) {
+      excluded = value === true;
+      saved = save(excluded);
+      if (!excluded && read()) excluded = true;
+      window['ga-disable-' + measurementId] = api.blocked;
+      return { excluded, saved };
+    }
+  };
+  window.siteAnalyticsPreferences = api;
+  window['ga-disable-' + measurementId] = api.blocked;
+  window.addEventListener('storage', event => {
+    if (event.key !== key && event.key !== null) return;
+    excluded = read();
+    window['ga-disable-' + measurementId] = api.blocked;
+  });
+})();
+
 // Shared GA4 measurement for DONGZE and Paperbag Crew.
-// Automated QA and explicit ?analytics=off visits do not send analytics.
+// Owner exclusion is remembered on this browser; settings pages and QA send no events.
 (() => {
   'use strict';
   function startMeasurement() {
   const params = new URLSearchParams(location.search);
-  if (navigator.webdriver || params.get('analytics') === 'off' ||
+  if (window.siteAnalyticsPreferences.blocked ||
       !['dongze.win', 'www.dongze.win', 'paperbagcrew.com', 'www.paperbagcrew.com'].includes(location.hostname)) return;
   const measurementId = 'G-7XNY9JBP6C';
   const siteName = location.hostname.includes('paperbagcrew') ? 'Paperbag Crew' : 'DONGZE';
@@ -25,6 +81,7 @@
   tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + measurementId;
   document.head.appendChild(tag);
   document.addEventListener('click', event => {
+    if (window.siteAnalyticsPreferences.blocked) return;
     const link = event.target.closest && event.target.closest('a[href]');
     if (!link) return;
     const target = new URL(link.href, location.href);
@@ -47,4 +104,5 @@
   if (document.readyState === 'complete') startMeasurement();
   else document.addEventListener('DOMContentLoaded', startMeasurement, { once: true });
 })();
+
 
