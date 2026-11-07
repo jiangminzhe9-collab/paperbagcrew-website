@@ -23,6 +23,12 @@
     .date { font-size: .9rem; color: #56594f; }
     footer { border-top: 1px solid #b7b7ab; margin-top: 2rem; padding-block: 1.5rem; }
   </style>
+<style>
+    .quote-reply textarea { box-sizing:border-box; display:block; width:100%; min-height:9.5em; margin:.5rem 0; padding:.75rem; font:inherit; line-height:1.55; color:#202520; background:#fff; border:1px solid #777b71; border-radius:4px; }
+    .quote-reply button { min-height:44px; padding:.45rem 1rem; border:1px solid currentColor; border-radius:4px; font:inherit; cursor:pointer; color:inherit; background:transparent; }
+    .quote-reply textarea:focus-visible, .quote-reply button:focus-visible { outline:3px solid #26705d; outline-offset:2px; }
+    .quote-reply [role=status] { margin-inline-start:.5rem; }
+  </style>
 </head>
 <body>
   <header><a href="/">PAPERBAG CREW.</a></header>
@@ -53,9 +59,48 @@
     <p>This choice preserves a consumer’s right to bring a claim in the court where the consumer relationship arose under Article 47 of Taiwan’s Consumer Protection Act, the right to request a transfer under Article 28(2) of the Code of Civil Procedure, and the small-claims jurisdiction rule in Article 436-9 of that Code. Exclusive statutory jurisdiction and any mandatory protections that apply to an international consumer also remain in effect.</p>
 
     <section id="business-venue"><h2>Venue for business licensing and commissions</h2><p>This clause applies to a licence or commission agreed between DONGZE and a business acting for commercial purposes. When both parties expressly accept this clause in the relevant quotation or contract, in writing or in a legally effective electronic record, they agree that the <strong>Taiwan New Taipei District Court is the exclusive court of first instance</strong> for civil disputes arising from the formation, validity, performance, termination or licensing scope of that contract. Mandatory rules of jurisdiction continue to apply.</p></section>
+<section class="quote-reply" id="quote-reply" aria-labelledby="quote-reply-title">
+<h2 id="quote-reply-title">Confirm a business quotation</h2>
+<p>If you have received a business quotation from DONGZE and agree to its terms and <a href="#business-venue">venue clause</a>, fill in the text below and reply to the original quotation email from your business account. Keep the attachments with your reply.</p>
+<label for="quote-reply-text">Editable reply template</label>
+<textarea id="quote-reply-text" rows="6" autocomplete="off">I, [name and title], on behalf of [company name], confirm DONGZE’s quotation [number, version and date] and its attached terms [version or date]. I expressly agree to the venue clause in that quotation: the Taiwan New Taipei District Court is the exclusive court of first instance for civil disputes arising from the formation, validity, performance, termination or licensing scope of that contract. Mandatory rules of jurisdiction continue to apply.</textarea>
+<button type="button" id="copy-quote-reply" hidden data-copied="Copied. Paste it into your reply to the original quotation." data-manual="Text selected. Use your device’s Copy command." data-empty="Enter your reply first.">Copy reply text</button> <span id="quote-copy-status" role="status"></span>
+<p><small>This page prepares your reply text. Review and send it in your email app.</small></p>
+</section>
+<section id="rights-notice" aria-labelledby="rights-notice-title">
+<h2 id="rights-notice-title">Report a rights concern</h2>
+<p>If you are the rights holder or an authorised representative, identify the product or page, the right you hold, the specific material in question and the action you request. You may attach a comparison, screenshots or proof of authority. Redact unrelated personal information.</p>
+<p><a href="mailto:dongze.ltd@gmail.com?subject=Rights%20notice%20%7C%20Work%20or%20product%20name&amp;body=Rights%20holder%20or%20authorised%20representative%3A%0D%0AReply%20email%3A%0D%0ARight%20claimed%20and%20original%20work%3A%0D%0AProduct%20ID%20or%20page%20URL%3A%0D%0ASpecific%20material%20in%20question%20and%20reason%3A%0D%0ARequested%20action%3A%0D%0AAttachments%2C%20if%20available%3A%20proof%20of%20rights%2C%20authorisation%20or%20screenshots.">Open a rights notice email draft</a></p>
+<p><small>You may also email <a href="mailto:dongze.ltd@gmail.com">dongze.ltd@gmail.com</a>.</small></p>
+</section>
 <h2>Contact</h2>
     <p>Email <a href="mailto:dongze.ltd@gmail.com">dongze.ltd@gmail.com</a> for customer complaints, licensing, or to report an infringement. For a rights report, include the work involved, its page address and how we can reach you. Postal address: 2F., No. 562, Zhongyang Rd., Xinzhuang Dist., New Taipei City, Taiwan.</p>
   </main>
   <footer><a href="/">Return to Paperbag Crew</a> · <a href="/shop/">Digital shop</a></footer>
+<script>
+(() => {
+  const field = document.getElementById('quote-reply-text');
+  const button = document.getElementById('copy-quote-reply');
+  const status = document.getElementById('quote-copy-status');
+  if (!field || !button || !status) return;
+  button.hidden = false;
+  field.addEventListener('input', () => { status.textContent = ''; });
+  button.addEventListener('click', async () => {
+    if (!field.value.trim()) {
+      field.focus();
+      status.textContent = button.dataset.empty;
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(field.value);
+      status.textContent = button.dataset.copied;
+    } catch {
+      field.focus();
+      field.select();
+      status.textContent = button.dataset.manual;
+    }
+  });
+})();
+</script>
 </body>
 </html>
