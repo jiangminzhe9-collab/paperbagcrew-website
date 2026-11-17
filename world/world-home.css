@@ -1,0 +1,31 @@
+.private-note{text-align:center;padding:6px 12px;background:#282c25;color:#c2c5b4;font-size:9px;letter-spacing:1.2px}.brand img{width:210px;height:auto;filter:invert(1);mix-blend-mode:screen}.bar{padding-top:9px;padding-bottom:9px}.world-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:22px}.world-heading h1{font-size:clamp(25px,3vw,38px);letter-spacing:-1px;margin:8px 0}.world-heading p{font-size:14px;margin:8px 0 0}.world-actions{display:flex;gap:8px;flex-wrap:wrap}.world-actions button{font-size:12px}main{padding-top:24px}.digital-strip{border:1px solid #594a31;border-radius:14px;background:#171b16;display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:26px;margin-top:30px}.digital-strip h2{font-size:26px;margin-top:10px}.digital-strip p{color:#a6a9b0;font-size:13px;margin-bottom:0}.collection-links{display:flex;flex-direction:column;gap:8px}.collection-links a{display:flex;justify-content:space-between;align-items:center;min-height:48px;padding:12px 16px;border:1px solid #5a503c;border-radius:8px;font-size:13px;text-decoration:none;font-weight:bold;color:#ffc653}.collection-links a:hover{background:#ffc65315}.shop-collections{flex-direction:row;margin:20px 0}.shop-collections a{flex:1}.preserved-links{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0}footer a{color:#c9b99a}.scene img{height:auto}.grid .card{min-width:0}nav button{min-height:44px}h3{overflow-wrap:anywhere}@media(max-width:760px){.brand img{width:178px}.bar{gap:10px}.bar .row button{font-size:12px;padding:8px 12px}.world-heading{display:block}.world-heading .eyebrow{font-size:9px;letter-spacing:1.5px}.world-actions{margin-top:14px}.world-heading h1{font-size:28px}.world-heading{margin-bottom:17px}nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;padding:0 10px 8px}nav button{font-size:10px;letter-spacing:.3px;padding:7px 3px;min-width:0;white-space:normal}.digital-strip{grid-template-columns:1fr;padding:20px;gap:18px}.digital-strip h2{font-size:24px}.shop-collections{flex-direction:column}.caption{font-size:11px}.card .eyebrow{font-size:9px;letter-spacing:1px}.card h3{font-size:19px}.card button{font-size:12px;padding:9px 12px}.preserved-links{font-size:11px}}@media(max-width:360px){.brand img{width:155px}.bar{padding-inline:12px}.world-heading h1{font-size:25px}}
+
+/* Readability revision: legible UI instead of relying on text baked into art. */
+@media(max-width:760px){
+ body{font-size:16px;line-height:1.6}
+ header{position:relative}
+ .private-note{font-size:11px;letter-spacing:.5px;line-height:1.5;padding:8px 14px}
+ nav{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:0 14px 14px;overflow:visible}
+ nav button{font-size:14px;line-height:1.35;letter-spacing:.2px;min-height:48px;padding:10px 5px}
+ .bar .row button{font-size:15px;min-height:48px}
+ .world-heading p,.digital-strip p,.caption,.card p,.mini p,.notice,footer,.preserved-links{font-size:16px}
+ .world-heading .eyebrow,.card .eyebrow,.eyebrow,.field label{font-size:12px;letter-spacing:1px}
+ .world-actions button,.card button,.collection-links a,.outfit-picker button{font-size:16px;min-height:48px}
+ .world-actions{gap:10px}
+ .hot span{opacity:1;font-size:13px;font-weight:800;line-height:1.3;letter-spacing:0;padding:5px 6px;max-width:calc(100% - 2px);white-space:normal;text-align:center;background:#090b10f2;border-color:#ffc653;color:#ffda88}
+ .quad span{font-size:14px;font-weight:800;padding:6px;display:inline-block}
+ #zone-cards{grid-template-columns:1fr}
+ #zone-cards .pad{padding:20px}
+ .card h3{font-size:23px}
+ .collection-links a{overflow-wrap:anywhere}
+ footer{line-height:1.65;padding:22px 14px}
+ .preserved-links{display:grid;gap:12px}
+ .preserved-links a{padding:8px 0;min-height:44px}
+ input,select,textarea{font-size:16px;min-width:0}
+ .controls{grid-template-columns:1fr}
+ .tag,.pill{font-size:12px}
+ .mini{grid-template-columns:1fr}
+}
+@media(max-width:760px){#label-toggle{display:none}}
+/* Owner requested removal of the four map overlay labels; hotspots remain. */
+#map .hot span,#label-toggle{display:none}
